@@ -10,7 +10,9 @@ import java.util.stream.Stream;
 public class LectorArchivos {
 
 	public String obtenerNombre(String nombreArchivo) {
+
 		File file = new File("../documentos/" + nombreArchivo);
+
 		if (file.exists() && !file.isDirectory()) {
 			String nombreCompleto = file.getName();
 			return nombreCompleto.substring(0, nombreCompleto.length() - 3);
@@ -19,12 +21,14 @@ public class LectorArchivos {
 	}
 
 	public String leer(String nombreArchivo) {
-		StringBuilder contentBuilder = new StringBuilder();
-		try (Stream<String> stream = Files.lines(Paths.get("../documentos/" + nombreArchivo), StandardCharsets.UTF_8)) {
-			stream.forEach(s -> contentBuilder.append(s));
+
+		StringBuilder contenido = new StringBuilder();
+
+		try (Stream<String> lineas = Files.lines(Paths.get("../documentos/" + nombreArchivo), StandardCharsets.UTF_8)) {
+			lineas.forEach(s -> contenido.append(s));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return contentBuilder.toString();
+		return contenido.toString();
 	}
 }
