@@ -12,4 +12,8 @@ public class LectorArchivos {
 		}
 		return "Archivo no encontrado.";
 	}
+
+	public String leer(String string) {
+		return "";
+	}
 }

@@ -8,6 +8,9 @@ import ar.edu.untref.dyasc.entrada.LectorArchivos;
 
 public class LectorArchivosDebe {
 
+	private static final String EJEMPLO_VACIO = "ejemplo_vacio.md";
+	private static final String EJEMPLO_CON_CONTENIDO = "ejemplo_con_contenido.md";
+
 	private LectorArchivos lectorArchivos;
 
 	@Before
@@ -27,9 +30,18 @@ public class LectorArchivosDebe {
 	@Test
 	public void devolver_el_nombre_del_archivo_localizado() {
 
-		String obtenido = lectorArchivos.obtenerNombre("mipresentacion.md");
+		String obtenido = lectorArchivos.obtenerNombre(EJEMPLO_CON_CONTENIDO);
 
-		String esperado = "mipresentacion";
+		String esperado = "ejemplo_con_contenido";
+		Assert.assertEquals(esperado, obtenido);
+	}
+
+	@Test
+	public void leer_el_contenido_de_un_archivo_vacio() {
+
+		String obtenido = lectorArchivos.leer(EJEMPLO_VACIO);
+
+		String esperado = "";
 		Assert.assertEquals(esperado, obtenido);
 	}
 }
