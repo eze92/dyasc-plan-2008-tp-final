@@ -44,4 +44,13 @@ public class LectorArchivosDebe {
 		String esperado = "";
 		Assert.assertEquals(esperado, obtenido);
 	}
+
+	@Test
+	public void leer_el_contenido_de_un_archivo_con_contenido() {
+
+		String obtenido = lectorArchivos.leer(EJEMPLO_CON_CONTENIDO);
+
+		String esperado = "---";
+		Assert.assertEquals(esperado, obtenido);
+	}
 }
