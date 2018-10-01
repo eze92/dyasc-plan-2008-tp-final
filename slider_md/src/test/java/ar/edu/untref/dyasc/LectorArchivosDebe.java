@@ -23,4 +23,13 @@ public class LectorArchivosDebe {
 		String esperado = "Archivo no encontrado.";
 		Assert.assertEquals(esperado, obtenido);
 	}
+
+	@Test
+	public void devolver_el_nombre_del_archivo_localizado() {
+
+		String obtenido = lectorArchivos.obtenerNombre("mipresentacion.md");
+
+		String esperado = "mipresentacion";
+		Assert.assertEquals(esperado, obtenido);
+	}
 }
