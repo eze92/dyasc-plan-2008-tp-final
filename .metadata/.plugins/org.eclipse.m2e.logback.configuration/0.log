@@ -1,9 +1,0 @@
-2018-10-01 14:06:13,099 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
-2018-10-01 14:07:09,280 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ar.edu.untref.dyasc:nombre_de_proyecto:1.0.0 @ /Users/martin/Desktop/Martin/Repositorios/Untref/dyasc-plan-2008-tp-final/slider_md/pom.xml.
-2018-10-01 14:07:10,430 [Worker-1] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /slider_md/src/main/java
-2018-10-01 14:07:10,432 [Worker-1] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /slider_md/src/test/java
-2018-10-01 14:07:10,646 [Worker-1] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 8 sec
-2018-10-01 14:07:14,448 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
-2018-10-01 14:07:14,450 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martin/Desktop/Martin/Repositorios/Untref/dyasc-plan-2008-tp-final/slider_md/src/main/resources
-2018-10-01 14:07:14,455 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
-2018-10-01 14:07:14,455 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martin/Desktop/Martin/Repositorios/Untref/dyasc-plan-2008-tp-final/slider_md/src/test/resources
