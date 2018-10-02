@@ -2,7 +2,6 @@ package ar.edu.untref.dyasc.entrada;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
@@ -24,10 +23,14 @@ public class LectorArchivos {
 
 		StringBuilder contenido = new StringBuilder();
 
-		try (Stream<String> lineas = Files.lines(Paths.get("../documentos/" + nombreArchivo), StandardCharsets.UTF_8)) {
-			lineas.forEach(s -> contenido.append(s));
+		try (Stream<String> lineas = Files.lines(Paths.get("../documentos/" + nombreArchivo))) {
+			lineas.forEach(linea -> contenido.append(linea).append("\n"));
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+
+		if (contenido.length() > 0) {
+			contenido.delete(contenido.length() - 1, contenido.length());
 		}
 		return contenido.toString();
 	}
