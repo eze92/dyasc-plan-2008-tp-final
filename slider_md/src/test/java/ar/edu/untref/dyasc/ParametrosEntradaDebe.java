@@ -47,7 +47,7 @@ public class ParametrosEntradaDebe {
 		String esperado = "--output";
 		Assert.assertEquals(esperado, obtenido);
 	}
-	
+
 	@Test
 	public void obtener_el_modo_pantalla_cuando_el_parametro_es_no_output() {
 
