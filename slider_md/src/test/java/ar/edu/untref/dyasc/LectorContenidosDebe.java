@@ -6,27 +6,17 @@ import org.junit.Test;
 
 import ar.edu.untref.dyasc.entrada.LectorArchivos;
 
-public class LectorArchivosDebe {
+public class LectorContenidosDebe {
 
 	private static final String EJEMPLO_VACIO = "ejemplo_vacio.md";
-	private static final String EJEMPLO_CON_UNA_LINEA = "ejemplo_con_una_linea.md";
 	private static final String EJEMPLO_CON_VARIAS_LINEAS = "ejemplo_con_varias_lineas.md";
-	private static final String EJEMPLO_NOMBRE_ARCHIVO_INVALIDO = "ejemplo_inválido_ñÑ.md";
+	private static final String EJEMPLO_CON_UNA_LINEA = "ejemplo_con_una_linea.md";
 
 	private LectorArchivos lectorArchivos;
 
 	@Before
 	public void inicializar() {
 		lectorArchivos = new LectorArchivos();
-	}
-
-	@Test
-	public void devolver_un_mensaje_cuando_el_archivo_no_fue_encontrado() {
-
-		String obtenido = lectorArchivos.obtenerNombre("");
-
-		String esperado = "Archivo no encontrado.";
-		Assert.assertEquals(esperado, obtenido);
 	}
 
 	@Test
@@ -63,21 +53,5 @@ public class LectorArchivosDebe {
 
 		String esperado = "---\n# h1\n---";
 		Assert.assertEquals(esperado, obtenido);
-	}
-
-	@Test
-	public void devolver_verdadero_para_un_nombre_del_archivo_valido() {
-
-		boolean valido = lectorArchivos.nombreValido(EJEMPLO_CON_UNA_LINEA);
-
-		Assert.assertTrue(valido);
-	}
-
-	@Test
-	public void devolver_falso_para_un_nombre_del_archivo_invalido() {
-
-		boolean valido = lectorArchivos.nombreValido(EJEMPLO_NOMBRE_ARCHIVO_INVALIDO);
-
-		Assert.assertFalse(valido);
 	}
 }
