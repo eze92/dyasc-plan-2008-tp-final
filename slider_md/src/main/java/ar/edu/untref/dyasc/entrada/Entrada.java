@@ -2,6 +2,8 @@ package ar.edu.untref.dyasc.entrada;
 
 public class Entrada {
 
+	private static final String MODO_SALIDA = "--output";
+
 	private String[] argumentos;
 	private String nombreArchivo;
 
@@ -23,6 +25,9 @@ public class Entrada {
 	}
 
 	public String modo() {
+		if (argumentos[0].contains(MODO_SALIDA)) {
+			return MODO_SALIDA;
+		}
 		return argumentos[0];
 	}
 }
