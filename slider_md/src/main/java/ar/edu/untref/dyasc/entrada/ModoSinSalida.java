@@ -9,6 +9,6 @@ public class ModoSinSalida implements IEntrada {
 		if (comando == MODO_SIN_SALIDA) {
 			return "Modo sin salida: procesando..";
 		}
-		return "Opcion no válida";
+		return "Opcion no valida.";
 	}
 }
