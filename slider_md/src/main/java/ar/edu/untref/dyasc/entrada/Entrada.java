@@ -33,11 +33,11 @@ public class Entrada {
 
 	public String nombreCarpeta() {
 
-		if (nombreArchivo.contains(".md")) {
-			return nombreArchivo.substring(0, nombreArchivo.length() - 3);
-		}
 		if (argumentos[0].contains(MODO_SALIDA)) {
 			return argumentos[0].split("=")[1];
+		}
+		if (nombreArchivo.contains(".md")) {
+			return nombreArchivo.substring(0, nombreArchivo.length() - 3);
 		}
 		return nombreArchivo;
 	}

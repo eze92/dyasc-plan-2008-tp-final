@@ -81,4 +81,15 @@ public class ParametrosEntradaDebe {
 		String esperado = "ejemplo_valido";
 		Assert.assertEquals(esperado, obtenido);
 	}
+
+	@Test
+	public void obtener_el_nombre_de_la_carpeta_para_el_modo_salida() {
+
+		Entrada entrada = new Entrada(EJEMPLO_CON_SALIDA);
+
+		String obtenido = entrada.nombreCarpeta();
+
+		String esperado = "nombre_de_archivo";
+		Assert.assertEquals(esperado, obtenido);
+	}
 }
