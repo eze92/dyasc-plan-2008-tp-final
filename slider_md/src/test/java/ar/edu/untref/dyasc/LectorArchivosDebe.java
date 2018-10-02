@@ -11,6 +11,7 @@ public class LectorArchivosDebe {
 	private static final String EJEMPLO_VACIO = "ejemplo_vacio.md";
 	private static final String EJEMPLO_CON_UNA_LINEA = "ejemplo_con_una_linea.md";
 	private static final String EJEMPLO_CON_VARIAS_LINEAS = "ejemplo_con_varias_lineas.md";
+	private static final String EJEMPLO_NOMBRE_ARCHIVO_INVALIDO = "ejemplo_inválido_ñÑ.md";
 
 	private LectorArchivos lectorArchivos;
 
@@ -70,5 +71,13 @@ public class LectorArchivosDebe {
 		boolean valido = lectorArchivos.nombreValido(EJEMPLO_CON_UNA_LINEA);
 
 		Assert.assertTrue(valido);
+	}
+
+	@Test
+	public void devolver_falso_para_un_nombre_del_archivo_invalido() {
+
+		boolean valido = lectorArchivos.nombreValido(EJEMPLO_NOMBRE_ARCHIVO_INVALIDO);
+
+		Assert.assertFalse(valido);
 	}
 }
