@@ -42,6 +42,10 @@ public class LectorArchivos {
 	}
 
 	public boolean nombreValido(String nombreArchivo) {
-		return (nombreArchivo.matches("[a-z.A-Z_-]+")) ? true : false;
+		if (nombreArchivo.matches("[a-z.A-Z_-]+") && nombreArchivo.contains(".md")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
