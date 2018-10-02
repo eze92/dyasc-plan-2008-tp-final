@@ -12,6 +12,7 @@ public class ParametrosEntradaDebe {
 	private static final String MODO_SALIDA = "--output=nombre_de_archivo";
 
 	private static final String[] EJEMPLO_PREDETERMINADO = { MODO_DEFAULT, "ejemplo_valido.md" };
+	private static final String[] EJEMPLO_PREDETERMINADO_SIN_EXTENSION = { MODO_DEFAULT, "ejemplo_valido" };
 	private static final String[] EJEMPLO_CON_SALIDA = { MODO_SALIDA, "ejemplo_valido.md" };
 	private static final String[] EJEMPLO_SIN_SALIDA = { MODO_SIN_SALIDA, "ejemplo_valido.md" };
 
@@ -63,6 +64,17 @@ public class ParametrosEntradaDebe {
 	public void obtener_el_nombre_de_la_carpeta_para_el_modo_predeterminado() {
 
 		Entrada entrada = new Entrada(EJEMPLO_PREDETERMINADO);
+
+		String obtenido = entrada.nombreCarpeta();
+
+		String esperado = "ejemplo_valido";
+		Assert.assertEquals(esperado, obtenido);
+	}
+
+	@Test
+	public void obtener_el_nombre_de_la_carpeta_para_el_modo_predeterminado_sin_extension() {
+
+		Entrada entrada = new Entrada(EJEMPLO_PREDETERMINADO_SIN_EXTENSION);
 
 		String obtenido = entrada.nombreCarpeta();
 
