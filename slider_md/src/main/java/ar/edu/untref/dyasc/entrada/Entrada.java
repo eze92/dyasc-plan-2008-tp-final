@@ -21,4 +21,8 @@ public class Entrada {
 	public String nombreArchivo() {
 		return nombreArchivo;
 	}
+
+	public String modo() {
+		return argumentos[0];
+	}
 }
