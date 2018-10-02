@@ -30,4 +30,15 @@ public class Entrada {
 		}
 		return argumentos[0];
 	}
+
+	public String nombreCarpeta() {
+
+		if (nombreArchivo.contains(".md")) {
+			return nombreArchivo.substring(0, nombreArchivo.length() - 3);
+		}
+		if (argumentos[0].contains(MODO_SALIDA)) {
+			return argumentos[0].split("=")[1];
+		}
+		return nombreArchivo;
+	}
 }

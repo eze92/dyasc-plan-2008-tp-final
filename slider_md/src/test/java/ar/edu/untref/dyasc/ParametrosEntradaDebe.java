@@ -58,4 +58,15 @@ public class ParametrosEntradaDebe {
 		String esperado = MODO_SIN_SALIDA;
 		Assert.assertEquals(esperado, obtenido);
 	}
+
+	@Test
+	public void obtener_el_nombre_de_la_carpeta_para_el_modo_predeterminado() {
+
+		Entrada entrada = new Entrada(EJEMPLO_PREDETERMINADO);
+
+		String obtenido = entrada.nombreCarpeta();
+
+		String esperado = "ejemplo_valido";
+		Assert.assertEquals(esperado, obtenido);
+	}
 }
