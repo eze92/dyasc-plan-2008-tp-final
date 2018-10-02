@@ -8,12 +8,11 @@ import ar.edu.untref.dyasc.entrada.ModoConSalida;
 import ar.edu.untref.dyasc.entrada.ModoPredeterminado;
 import ar.edu.untref.dyasc.entrada.ModoSinSalida;
 
-public class EntradaDebe {
+public class EntradaValidaDebe {
 
 	private static final String MODO_PREDETERMINADO = "--mode=default";
 	private static final String MODO_SIN_SALIDA = "--mode=no-output";
 	private static final String MODO_CON_SALIDA = "--output";
-	private static final String OPCION_INVALIDA = "--mode=opcion_invalida";
 	private static final String VACIO = "";
 
 	private ModoSinSalida modoSinSalida;
@@ -60,15 +59,6 @@ public class EntradaDebe {
 		String obtenido = modoPredeterminado.procesar(MODO_CON_SALIDA);
 
 		String esperado = "Modo con salida: procesando..";
-		Assert.assertEquals(esperado, obtenido);
-	}
-
-	@Test
-	public void devolver_un_mensaje_cuando_la_opcion_no_es_valida() {
-
-		String obtenido = modoPredeterminado.procesar(OPCION_INVALIDA);
-
-		String esperado = "Opcion no valida.";
 		Assert.assertEquals(esperado, obtenido);
 	}
 }
