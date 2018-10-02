@@ -7,7 +7,7 @@ import org.junit.Test;
 import ar.edu.untref.dyasc.entrada.ExepcionArchivoNoEncontrado;
 import ar.edu.untref.dyasc.entrada.LectorArchivos;
 
-public class LectorContenidosDebe {
+public class LectorArchivosDebe {
 
 	private static final String EJEMPLO_VACIO = "ejemplo_vacio.md";
 	private static final String EJEMPLO_CON_VARIAS_LINEAS = "ejemplo_con_varias_lineas.md";
