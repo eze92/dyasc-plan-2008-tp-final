@@ -8,5 +8,6 @@ public class ExepcionArchivoNoEncontrado extends Exception {
 
 	public ExepcionArchivoNoEncontrado() {
 		super(mensaje);
+		System.out.println(mensaje);
 	}
 }

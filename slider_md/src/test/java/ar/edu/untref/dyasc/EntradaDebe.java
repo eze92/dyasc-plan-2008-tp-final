@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import ar.edu.untref.dyasc.entrada.Entrada;
 
-public class ValidacionEntradaDebe {
+public class EntradaDebe {
 
 	private static final String[] NOMBRE_VALIDO = { "--mode=default", "ejemplo_valido.md" };
 	private static final String[] NOMBRE_CON_CARACTERES_INVALIDOS = { "--mode=default", "ejemplo_ñÑ.md" };

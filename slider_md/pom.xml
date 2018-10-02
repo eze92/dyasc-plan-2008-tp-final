@@ -37,7 +37,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>nombre_de_proyecto</finalName>
+        <finalName>slider</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -62,7 +62,7 @@
                   <archive>
                     <manifest>
                       <addClasspath>true</addClasspath>
-                      <mainClass>ar.edu.untref.dyasc.Program</mainClass>
+                      <mainClass>ar.edu.untref.dyasc.Programa</mainClass>
                     </manifest>
                   </archive>
                 </configuration>
