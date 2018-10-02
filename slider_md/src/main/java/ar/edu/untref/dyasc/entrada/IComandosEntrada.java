@@ -1,5 +1,5 @@
 package ar.edu.untref.dyasc.entrada;
 
-public interface IEntrada {
+public interface IComandosEntrada {
 	String procesar(String comando);
 }

@@ -1,13 +1,13 @@
 package ar.edu.untref.dyasc.entrada;
 
-public class ModoConSalida implements IEntrada {
+public class ModoConSalida implements IComandosEntrada {
 
 	private static final String MODO_CON_SALIDA = "--output";
 
-	private IEntrada iEntrada;
+	private IComandosEntrada iEntrada;
 	private boolean archivoPresente = false;
 
-	public ModoConSalida(IEntrada iEntrada, boolean archivoPresente) {
+	public ModoConSalida(IComandosEntrada iEntrada, boolean archivoPresente) {
 		this.iEntrada = iEntrada;
 		this.archivoPresente = archivoPresente;
 	}

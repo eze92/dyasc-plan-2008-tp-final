@@ -1,6 +1,6 @@
 package ar.edu.untref.dyasc.entrada;
 
-public class ModoSinSalida implements IEntrada {
+public class ModoSinSalida implements IComandosEntrada {
 
 	private static final String MODO_SIN_SALIDA = "--mode=no-output";
 

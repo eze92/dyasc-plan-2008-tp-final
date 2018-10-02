@@ -1,13 +1,13 @@
 package ar.edu.untref.dyasc.entrada;
 
-public class ModoPredeterminado implements IEntrada {
+public class ModoPredeterminado implements IComandosEntrada {
 
 	private static final String COMANDO_PREDETERMINADO = "--mode=default";
 	private static final String VACIO = "";
 
-	private IEntrada iEntrada;
+	private IComandosEntrada iEntrada;
 
-	public ModoPredeterminado(IEntrada iEntrada) {
+	public ModoPredeterminado(IComandosEntrada iEntrada) {
 		this.iEntrada = iEntrada;
 	}
 
