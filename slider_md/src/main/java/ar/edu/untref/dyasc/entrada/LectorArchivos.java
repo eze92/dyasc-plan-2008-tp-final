@@ -13,8 +13,12 @@ public class LectorArchivos {
 		File file = new File("../documentos/" + nombreArchivo);
 
 		if (file.exists() && !file.isDirectory()) {
-			String nombreCompleto = file.getName();
-			return nombreCompleto.substring(0, nombreCompleto.length() - 3);
+			String nombreConExtension = file.getName();
+
+			if (nombreValido(nombreConExtension)) {
+				return nombreConExtension.substring(0, nombreConExtension.length() - 3);
+			}
+			return "Opcion no valida.";
 		}
 		return "Archivo no encontrado.";
 	}
@@ -33,5 +37,12 @@ public class LectorArchivos {
 			contenido.delete(contenido.length() - 1, contenido.length());
 		}
 		return contenido.toString();
+	}
+
+	public boolean nombreValido(String nombreArchivo) {
+		if (nombreArchivo.matches("[a-z.A-Z_-]+")) {
+			return true;
+		}
+		return false;
 	}
 }

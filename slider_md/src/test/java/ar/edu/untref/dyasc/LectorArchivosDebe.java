@@ -63,4 +63,12 @@ public class LectorArchivosDebe {
 		String esperado = "---\n# h1\n---";
 		Assert.assertEquals(esperado, obtenido);
 	}
+
+	@Test
+	public void devolver_verdadero_para_un_nombre_del_archivo_valido() {
+
+		boolean valido = lectorArchivos.nombreValido(EJEMPLO_CON_UNA_LINEA);
+
+		Assert.assertTrue(valido);
+	}
 }
