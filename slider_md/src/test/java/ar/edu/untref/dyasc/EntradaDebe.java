@@ -40,4 +40,15 @@ public class EntradaDebe {
 
 		Assert.assertTrue(valido);
 	}
+
+	@Test
+	public void obtener_el_nombre_del_archivo_cuando_los_parametros_son_validos() {
+
+		Entrada entrada = new Entrada(NOMBRE_VALIDO);
+
+		String obtenido = entrada.nombreArchivo();
+
+		String esperado = "ejemplo_valido.md";
+		Assert.assertEquals(esperado, obtenido);
+	}
 }

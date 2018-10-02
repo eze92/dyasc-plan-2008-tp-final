@@ -17,4 +17,8 @@ public class Entrada {
 			return false;
 		}
 	}
+
+	public String nombreArchivo() {
+		return nombreArchivo;
+	}
 }
