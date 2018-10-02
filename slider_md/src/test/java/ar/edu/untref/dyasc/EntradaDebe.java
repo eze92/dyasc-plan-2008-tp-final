@@ -10,6 +10,7 @@ import ar.edu.untref.dyasc.entrada.ModoSinSalida;
 public class EntradaDebe {
 
 	private static final String MODO_PREDETERMINADO = "--mode=default";
+	private static final String VACIO = "";
 
 	private ModoSinSalida modoSinSalida;
 	private ModoPredeterminado modoPredeterminado;
@@ -21,9 +22,18 @@ public class EntradaDebe {
 	}
 
 	@Test
-	public void llamar_a_modo_predeterminado_cuando_el_comando_es_default() {
+	public void llamar_al_modo_predeterminado_cuando_el_comando_es_default() {
 
 		String obtenido = modoPredeterminado.procesar(MODO_PREDETERMINADO);
+
+		String esperado = "Modo predeterminado: procesando..";
+		Assert.assertEquals(esperado, obtenido);
+	}
+
+	@Test
+	public void llamar_al_modo_predeterminado_cuando_el_comando_es_vacio() {
+
+		String obtenido = modoPredeterminado.procesar(VACIO);
 
 		String esperado = "Modo predeterminado: procesando..";
 		Assert.assertEquals(esperado, obtenido);
