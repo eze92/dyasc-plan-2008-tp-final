@@ -20,15 +20,6 @@ public class LectorContenidosDebe {
 	}
 
 	@Test
-	public void devolver_el_nombre_del_archivo_localizado() {
-
-		String obtenido = lectorArchivos.obtenerNombre(EJEMPLO_CON_UNA_LINEA);
-
-		String esperado = "ejemplo_con_una_linea";
-		Assert.assertEquals(esperado, obtenido);
-	}
-
-	@Test
 	public void leer_el_contenido_de_un_archivo_vacio() {
 
 		String obtenido = lectorArchivos.leer(EJEMPLO_VACIO);
