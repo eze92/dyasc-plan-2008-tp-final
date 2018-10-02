@@ -8,10 +8,12 @@ import ar.edu.untref.dyasc.entrada.Entrada;
 public class ParametrosEntradaDebe {
 
 	private static final String MODO_DEFAULT = "--mode=default";
+	private static final String MODO_SIN_SALIDA = "--mode=no-output";
 	private static final String MODO_SALIDA = "--output=nombre_de_archivo";
 
 	private static final String[] EJEMPLO_PREDETERMINADO = { MODO_DEFAULT, "ejemplo_valido.md" };
 	private static final String[] EJEMPLO_CON_SALIDA = { MODO_SALIDA, "ejemplo_valido.md" };
+	private static final String[] EJEMPLO_SIN_SALIDA = { MODO_SIN_SALIDA, "ejemplo_valido.md" };
 
 	@Test
 	public void obtener_el_nombre_del_archivo_cuando_los_parametros_son_validos() {
@@ -43,6 +45,17 @@ public class ParametrosEntradaDebe {
 		String obtenido = entrada.modo();
 
 		String esperado = "--output";
+		Assert.assertEquals(esperado, obtenido);
+	}
+	
+	@Test
+	public void obtener_el_modo_pantalla_cuando_el_parametro_es_no_output() {
+
+		Entrada entrada = new Entrada(EJEMPLO_SIN_SALIDA);
+
+		String obtenido = entrada.modo();
+
+		String esperado = MODO_SIN_SALIDA;
 		Assert.assertEquals(esperado, obtenido);
 	}
 }
