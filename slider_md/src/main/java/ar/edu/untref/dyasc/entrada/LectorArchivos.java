@@ -10,26 +10,23 @@ public class LectorArchivos {
 
 	private static final String RUTA_UBICACION_ARCHIVOS = "../documentos/";
 
-	public String obtenerNombre(String nombreArchivo) {
+	public String leer(String nombreArchivo) throws ExepcionArchivoNoEncontrado {
 
-		File file = new File(RUTA_UBICACION_ARCHIVOS + nombreArchivo);
+		String rutaArchivo = RUTA_UBICACION_ARCHIVOS + nombreArchivo;
+		File file = new File(rutaArchivo);
 
 		if (file.exists() && !file.isDirectory()) {
-			String nombreConExtension = file.getName();
-
-			if (nombreValido(nombreConExtension)) {
-				return nombreConExtension.substring(0, nombreConExtension.length() - 3);
-			}
-			return "Opcion no valida.";
+			return lecturaArchivo(nombreArchivo, rutaArchivo);
+		} else {
+			throw new ExepcionArchivoNoEncontrado();
 		}
-		return "Archivo no encontrado.";
 	}
 
-	public String leer(String nombreArchivo) {
+	private String lecturaArchivo(String nombreArchivo, String rutaArchivo) {
 
 		StringBuilder contenido = new StringBuilder();
 
-		try (Stream<String> lineas = Files.lines(Paths.get(RUTA_UBICACION_ARCHIVOS + nombreArchivo))) {
+		try (Stream<String> lineas = Files.lines(Paths.get(rutaArchivo))) {
 			lineas.forEach(linea -> contenido.append(linea).append("\n"));
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -39,13 +36,5 @@ public class LectorArchivos {
 			contenido.delete(contenido.length() - 1, contenido.length());
 		}
 		return contenido.toString();
-	}
-
-	public boolean nombreValido(String nombreArchivo) {
-		if (nombreArchivo.matches("[a-z.A-Z_-]+") && nombreArchivo.contains(".md")) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 }
