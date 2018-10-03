@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class LectorArchivos {
 
-	private static final String RUTA_UBICACION_ARCHIVOS = "../documentos/";
+	private static final String RUTA_UBICACION_ARCHIVOS = "../archivosDePrueba/";
 
 	public String leer(String nombreArchivo) throws ExepcionArchivoNoEncontrado {
 
