@@ -1,11 +1,11 @@
-package salida;
+package ar.edu.untref.dyasc.salida;
 
 import java.io.File;
 import java.io.IOException;
 
 public class GeneradorDeSalida {
 
-    public void crearCarpetaConArchivo(String rutaArchivo, String tieneOutput) throws IOException{
+    public void crearCarpetaConArchivo(String rutaArchivo, String tieneOutput) throws IOException {
         File existeArchivoEnRuta = new File(rutaArchivo);
         File copiaDirectorio = new File(System.getProperty("user.dir"), "/plantilla/");
         String directorio = "";
@@ -15,7 +15,7 @@ public class GeneradorDeSalida {
             } else {
                 directorio = tieneOutput;
             }
-       
+
         }
 
         File generarDirectorio = new File(directorio);
@@ -23,6 +23,6 @@ public class GeneradorDeSalida {
         if (existeArchivoEnRuta.exists()) {
             copiarDirectorio.copiarArchivos(copiaDirectorio, generarDirectorio);
 
-            } 
         }
     }
+}
