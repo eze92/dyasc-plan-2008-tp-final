@@ -13,7 +13,7 @@ public class Entrada {
 	}
 
 	public boolean nombreValido() {
-		if (nombreArchivo.matches("[a-z.A-Z_-]+")) {
+		if (nombreArchivo.matches("[a-z.A-Z0-9_-]+")) {
 			return true;
 		} else {
 			return false;
