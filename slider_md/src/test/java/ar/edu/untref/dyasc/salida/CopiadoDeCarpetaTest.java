@@ -10,7 +10,7 @@ import junit.framework.Assert;
 public class CopiadoDeCarpetaTest {
 
 	@Test
-	public void seCopiaCarpetaDelDirectorioCorrectamente() throws IOException{
+	public void seCopiaCarpetaDelDirectorioCorrectamente() throws IOException {
 		String rutaOrigen = System.getProperty("user.dir");
 		String rutaDestino = (rutaOrigen + "/carpetaPruebaCopia");
 
@@ -20,5 +20,19 @@ public class CopiadoDeCarpetaTest {
 		realizarCopia.copiarArchivos(carpetaOrigen, carpetaDestino);
 
 		Assert.assertTrue(carpetaDestino.exists());
+	}
+
+	public void carpetaInexistenteParaCopiar() throws IOException {
+
+		String rutaOrigen = "DirectorioIncorrecto";
+		String rutaDestino = (rutaOrigen + "/pruebaCarpetaCopia");
+
+		File carpetaOrigen = new File(rutaOrigen);
+		File carpetaDestino = new File(rutaDestino);
+		CopiadoDeCarpeta realizarCopia = new CopiadoDeCarpeta();
+		realizarCopia.copiarArchivos(carpetaOrigen, carpetaDestino);
+
+		Assert.assertTrue(carpetaDestino.exists());
+
 	}
 }
