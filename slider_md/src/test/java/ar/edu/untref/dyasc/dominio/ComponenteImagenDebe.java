@@ -12,9 +12,9 @@ public class ComponenteImagenDebe {
 
 	private static final String COMPONENTE_IMAGEN = "i:imagen.png";
 	private static final String OTRO_COMPONENTE_IMAGEN = "i:otra_imagen.png";
-	private static final String COMPONENTE_H1 = "# Titulo h1";
+	private static final String COMPONENTE_LISTA = "* Item 1";
 
-	@Mock Componente componenteH1;
+	@Mock ItemLista componenteLista;
 
 	private Imagen componenteImagen;
 
@@ -45,9 +45,9 @@ public class ComponenteImagenDebe {
 	@Test
 	public void verificar_que_se_llama_a_otro_componente_cuando_la_etiqueta_no_corresponde_a_h1() {
 
-		componenteImagen = new Imagen(componenteH1, COMPONENTE_H1);
+		componenteImagen = new Imagen(componenteLista, COMPONENTE_LISTA);
 		componenteImagen.parsearMarkdown();
 
-		Mockito.verify(componenteH1).parsearMarkdown();
+		Mockito.verify(componenteLista).parsearMarkdown();
 	}
 }
