@@ -11,5 +11,6 @@ public class TituloH2 extends Componente {
 
 	@Override
 	void parsearMarkdown() {
+		agregarNuevoContenido("<h2>Titulo h2</h2>");
 	}
 }
