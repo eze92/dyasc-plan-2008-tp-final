@@ -11,6 +11,8 @@ public class Imagen extends Componente {
 
 	@Override
 	void parsearMarkdown() {
-		agregarNuevoContenido("<img src=\"imagen.png\"/>");
+		String textoComponente = this.componenteActual.substring(2);
+		String nuevoContenido = "<img src=\"" + textoComponente + "\"/>";
+		agregarNuevoContenido(nuevoContenido);
 	}
 }
