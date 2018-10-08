@@ -14,5 +14,6 @@ public class ItemLista extends Componente {
 
 	@Override
 	void parsearMarkdown() {
+		agregarNuevoContenido("<ul><li>Item 1</li></ul>");
 	}
 }
