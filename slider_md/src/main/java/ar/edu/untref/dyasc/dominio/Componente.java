@@ -8,11 +8,9 @@ public abstract class Componente {
 	private String nuevoContenido = "";
 	private String componenteActual;
 
-	public Componente(String componenteActual) {
+	public Componente(Componente siguienteComponente, String componenteActual) {
 		this.componenteActual = componenteActual;
 	}
-
-	abstract Componente siguiente(Componente componente);
 
 	abstract String parsearMarkdown();
 

@@ -2,17 +2,19 @@ package ar.edu.untref.dyasc.dominio;
 
 public class TituloH1 extends Componente {
 
-	public TituloH1(String componenteActual) {
-		super(componenteActual);
-	}
+	private Componente siguienteComponente;
+	private String componenteActual;
 
-	@Override
-	Componente siguiente(Componente componente) {
-		return null;
+	public TituloH1(Componente siguienteComponente, String componenteActual) {
+		super(siguienteComponente, componenteActual);
+
+		this.siguienteComponente = siguienteComponente;
+		this.componenteActual = componenteActual;
 	}
 
 	@Override
 	String parsearMarkdown() {
-		return "<h1>Texto h1</h1>";
+		String textoComponente = this.componenteActual.substring(2);
+		return "<h1>" + textoComponente + "</h1>";
 	}
 }
