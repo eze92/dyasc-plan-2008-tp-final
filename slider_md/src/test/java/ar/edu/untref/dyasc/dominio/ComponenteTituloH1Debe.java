@@ -19,7 +19,7 @@ public class ComponenteTituloH1Debe {
 	private Componente componenteH1;
 
 	@Test
-	public void devolver_la_etiqueta_h1_con_el_texto_correspondiente() {
+	public void agregar_al_nuevo_contenido_la_etiqueta_h1_con_el_texto_correspondiente() {
 
 		componenteH1 = new TituloH1(null, COMPONENTE_H1);
 
@@ -31,7 +31,7 @@ public class ComponenteTituloH1Debe {
 	}
 
 	@Test
-	public void devolver_la_etiqueta_h1_para_un_componente_con_diferente_texto() {
+	public void agregar_al_nuevo_contenido_la_etiqueta_h1_para_un_componente_con_diferente_texto() {
 
 		componenteH1 = new TituloH1(null, OTRO_COMPONETE_H1);
 
