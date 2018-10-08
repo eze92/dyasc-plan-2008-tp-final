@@ -1,5 +1,8 @@
 package ar.edu.untref.dyasc.dominio;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,13 +24,18 @@ public class ComponenteItemListaDebe {
 	@Test
 	public void agregar_al_nuevo_contenido_la_etiqueta_lista_con_un_solo_item() {
 
+		List<String> contenidoOriginal = new LinkedList<>();
+		contenidoOriginal.add("* Item 1");
+		contenidoOriginal.add("# Titulo h1");
+
 		componenteItemLista = new ItemLista(null, ITEM_LISTA);
+		componenteItemLista.setContenidoOriginal(contenidoOriginal);
 		componenteItemLista.parsearMarkdown();
 
 		String obtenido = componenteItemLista.getNuevoContenido();
 
-		String esperado = "<ul>" + 
-							"<li>Item 1</li>" + 
+		String esperado = "<ul>" +
+							"<li>Item 1</li>" +
 						  "</ul>";
 		Assert.assertEquals(esperado, obtenido);
 	}
@@ -35,14 +43,38 @@ public class ComponenteItemListaDebe {
 	@Test
 	public void agregar_al_nuevo_contenido_la_etiqueta_lista_con_un_solo_item_y_diferente_contenido() {
 
+		List<String> contenidoOriginal = new LinkedList<>();
+		contenidoOriginal.add("* Item 2");
+		contenidoOriginal.add("# Titulo h1");
+
 		componenteItemLista = new ItemLista(null, ITEM_LISTA_2);
+		componenteItemLista.setContenidoOriginal(contenidoOriginal);
 		componenteItemLista.parsearMarkdown();
 
 		String obtenido = componenteItemLista.getNuevoContenido();
 
-		String esperado = "<ul>" + 
-							"<li>Item 2</li>" + 
+		String esperado = "<ul>" +
+							"<li>Item 2</li>" +
 						  "</ul>";
+		Assert.assertEquals(esperado, obtenido);
+	}
+
+	@Test
+	public void agregar_al_nuevo_contenido_la_etiqueta_inicial_del_la_lista_cuando_hay_mas_de_un_item() {
+
+		List<String> contenidoOriginal = new LinkedList<>();
+		contenidoOriginal.add("* Item 1");
+		contenidoOriginal.add("* Item 2");
+		contenidoOriginal.add("# Titulo h1");
+
+		componenteItemLista = new ItemLista(null, ITEM_LISTA);
+		componenteItemLista.setContenidoOriginal(contenidoOriginal);
+		componenteItemLista.parsearMarkdown();
+
+		String obtenido = componenteItemLista.getNuevoContenido();
+
+		String esperado = "<ul>" +
+							"<li>Item 1</li>";
 		Assert.assertEquals(esperado, obtenido);
 	}
 

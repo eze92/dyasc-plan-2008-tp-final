@@ -25,4 +25,8 @@ public abstract class Componente {
 	public String getNuevoContenido() {
 		return nuevoContenido;
 	}
+
+	public List<String> getContenidoOriginal() {
+		return contenidoOriginal;
+	}
 }
