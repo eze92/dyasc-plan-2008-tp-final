@@ -14,8 +14,15 @@ public class ItemLista extends Componente {
 
 	@Override
 	void parsearMarkdown() {
-		String textoComponente = this.componenteActual.substring(2);
-		String nuevoContenido = "<ul><li>" + textoComponente + "</li></ul>";
-		agregarNuevoContenido(nuevoContenido);
+
+		String etiqueta = this.componenteActual.substring(0, 2);
+
+		if (etiqueta.equals("* ")) {
+			String textoComponente = this.componenteActual.substring(2);
+			String nuevoContenido = "<ul><li>" + textoComponente + "</li></ul>";
+			agregarNuevoContenido(nuevoContenido);
+		} else {
+			this.siguienteComponente.parsearMarkdown();
+		}
 	}
 }
