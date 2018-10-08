@@ -5,24 +5,25 @@ import java.io.IOException;
 
 public class GeneradorDeSalida {
 
-    public void crearCarpetaConArchivo(String rutaArchivo, String tieneOutput) throws IOException {
-        File existeArchivoEnRuta = new File(rutaArchivo);
-        File copiaDirectorio = new File(System.getProperty("user.dir"), "/plantilla/");
-        String directorio = "";
-        if (rutaArchivo.contains(".")) {
-            if (tieneOutput.equals("")) {
-                directorio = rutaArchivo.substring(0, rutaArchivo.lastIndexOf('.'));
-            } else {
-                directorio = tieneOutput;
-            }
+	public void crearCarpetaConArchivo(String rutaArchivo, String rutaSalida) throws IOException {
 
-        }
+		File archivo = new File(rutaArchivo);
 
-        File generarDirectorio = new File(directorio);
-        CopiadoDeCarpeta copiarDirectorio = new CopiadoDeCarpeta();
-        if (existeArchivoEnRuta.exists()) {
-            copiarDirectorio.copiarArchivos(copiaDirectorio, generarDirectorio);
+		File copiaDirectorio = new File(System.getProperty("user.dir"), "/plantilla/");
+		String directorio = "";
+		if (rutaArchivo.contains(".")) {
+			if (rutaSalida.equals("")) {
+				directorio = rutaArchivo.substring(0, rutaArchivo.lastIndexOf('.'));
+			} else {
+				directorio = rutaSalida;
+			}
+		}
 
-        }
-    }
+		File generarDirectorio = new File(directorio);
+		CopiadoDeCarpeta copiarDirectorio = new CopiadoDeCarpeta();
+
+		if (archivo.exists()) {
+			copiarDirectorio.copiarArchivos(copiaDirectorio, generarDirectorio);
+		}
+	}
 }
