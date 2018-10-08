@@ -14,6 +14,8 @@ public class ItemLista extends Componente {
 
 	@Override
 	void parsearMarkdown() {
-		agregarNuevoContenido("<ul><li>Item 1</li></ul>");
+		String textoComponente = this.componenteActual.substring(2);
+		String nuevoContenido = "<ul><li>" + textoComponente + "</li></ul>";
+		agregarNuevoContenido(nuevoContenido);
 	}
 }
