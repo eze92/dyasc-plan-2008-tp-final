@@ -14,7 +14,13 @@ public class TituloH1 extends Componente {
 
 	@Override
 	String parsearMarkdown() {
-		String textoComponente = this.componenteActual.substring(2);
-		return "<h1>" + textoComponente + "</h1>";
+
+		String etiqueta = this.componenteActual.substring(0, 2);
+		if (etiqueta.equals("# ")) {
+			String textoComponente = this.componenteActual.substring(2);
+			return "<h1>" + textoComponente + "</h1>";
+		} else {
+			return this.siguienteComponente.parsearMarkdown();
+		}
 	}
 }
