@@ -12,13 +12,17 @@ public abstract class Componente {
 		this.componenteActual = componenteActual;
 	}
 
-	abstract String parsearMarkdown();
+	abstract void parsearMarkdown();
 
-	void agregarComponenteAlNuevoContenido(String nuevoComponente) {
+	void agregarNuevoContenido(String nuevoComponente) {
 		this.nuevoContenido += nuevoComponente;
 	}
 
 	public void setContenidoOriginal(List<String> contenidoOriginal) {
 		this.contenidoOriginal = contenidoOriginal;
+	}
+
+	public String getNuevoContenido() {
+		return nuevoContenido;
 	}
 }

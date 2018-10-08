@@ -14,8 +14,7 @@ public class ComponenteTituloH1Debe {
 	private static final String OTRO_COMPONETE_H1 = "# Otro texto h1";
 	private static final String COMPONENTE_H2 = "## Texto h2";
 
-	@Mock
-	Componente componenteH2;
+	@Mock Componente componenteH2;
 
 	private Componente componenteH1;
 
@@ -24,9 +23,10 @@ public class ComponenteTituloH1Debe {
 
 		componenteH1 = new TituloH1(null, COMPONENTE_H1);
 
-		String obtenido = componenteH1.parsearMarkdown();
-		String esperado = "<h1>Texto h1</h1>";
+		componenteH1.parsearMarkdown();
+		String obtenido = componenteH1.getNuevoContenido();
 
+		String esperado = "<h1>Texto h1</h1>";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
@@ -35,9 +35,10 @@ public class ComponenteTituloH1Debe {
 
 		componenteH1 = new TituloH1(null, OTRO_COMPONETE_H1);
 
-		String obtenido = componenteH1.parsearMarkdown();
-		String esperado = "<h1>Otro texto h1</h1>";
+		componenteH1.parsearMarkdown();
+		String obtenido = componenteH1.getNuevoContenido();
 
+		String esperado = "<h1>Otro texto h1</h1>";
 		Assert.assertEquals(esperado, obtenido);
 	}
 

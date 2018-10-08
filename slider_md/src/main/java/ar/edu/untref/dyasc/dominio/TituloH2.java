@@ -10,7 +10,6 @@ public class TituloH2 extends Componente {
 	}
 
 	@Override
-	String parsearMarkdown() {
-		return null;
+	void parsearMarkdown() {
 	}
 }
