@@ -47,7 +47,6 @@ public class ItemLista extends Componente {
 		} else {
 			return "<ul>";
 		}
-
 		return "";
 	}
 
