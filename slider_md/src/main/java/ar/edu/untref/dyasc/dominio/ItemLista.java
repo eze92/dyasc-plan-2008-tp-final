@@ -27,6 +27,12 @@ public class ItemLista extends Componente {
 		}
 	}
 
+	private String agregarItemLista() {
+		String textoComponente = this.componenteActual.substring(2);
+		String itemLista = "<li>" + textoComponente + "</li>";
+		return itemLista;
+	}
+
 	private String agregarInicioLista() {
 
 		int posicionActual = getContenidoOriginal().indexOf(componenteActual);
@@ -34,8 +40,8 @@ public class ItemLista extends Componente {
 		boolean dentroDelRangoInferior = posicionActual - 1 >= 0;
 		if (dentroDelRangoInferior) {
 
-			boolean anteriorTipoLista = getContenidoOriginal().get(posicionActual - 1).startsWith("*");
-			if (!anteriorTipoLista) {
+			boolean anteriorEsTipoLista = getContenidoOriginal().get(posicionActual - 1).startsWith("*");
+			if (!anteriorEsTipoLista) {
 				return "<ul>";
 			}
 		} else {
@@ -45,12 +51,6 @@ public class ItemLista extends Componente {
 		return "";
 	}
 
-	private String agregarItemLista() {
-		String textoComponente = this.componenteActual.substring(2);
-		String itemLista = "<li>" + textoComponente + "</li>";
-		return itemLista;
-	}
-
 	private String agregarFinLista() {
 
 		int posicionActual = getContenidoOriginal().indexOf(componenteActual);
@@ -58,8 +58,8 @@ public class ItemLista extends Componente {
 		boolean dentroDelRangoSuperior = posicionActual + 1 <= getContenidoOriginal().size();
 		if (dentroDelRangoSuperior) {
 
-			boolean siguienteTipoLista = getContenidoOriginal().get(posicionActual + 1).startsWith("*");
-			if (!siguienteTipoLista) {
+			boolean siguienteEsTipoLista = getContenidoOriginal().get(posicionActual + 1).startsWith("*");
+			if (!siguienteEsTipoLista) {
 				return "</ul>";
 			}
 		} else {
