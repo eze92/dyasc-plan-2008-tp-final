@@ -13,6 +13,10 @@ public class Seccion extends Componente {
 
 	@Override
 	void parsearMarkdown() {
-		agregarNuevoContenido("<section></section>");
+		if (this.componenteActual.startsWith("---")) {
+			agregarNuevoContenido("<section></section>");
+		} else {
+			this.siguienteComponente.parsearMarkdown();
+		}
 	}
 }
