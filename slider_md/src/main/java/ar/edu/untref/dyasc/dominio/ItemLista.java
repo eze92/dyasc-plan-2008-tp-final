@@ -4,14 +4,12 @@ public class ItemLista extends Componente {
 
 	private Componente siguienteComponente;
 	private String componenteActual;
-	private Lista lista;
 
-	public ItemLista(Componente siguienteComponente, String componenteActual, Lista lista) {
+	public ItemLista(Componente siguienteComponente, String componenteActual) {
 		super(siguienteComponente, componenteActual);
 
 		this.siguienteComponente = siguienteComponente;
 		this.componenteActual = componenteActual;
-		this.lista = lista;
 	}
 
 	@Override
@@ -19,7 +17,7 @@ public class ItemLista extends Componente {
 
 		if (this.componenteActual.startsWith("*")) {
 
-			String nuevoContenido = lista.crearInicio(); // Agrega <ul>
+			String nuevoContenido = agregarInicioLista(); // Agrega <ul>
 			nuevoContenido += agregarItemLista(); // Agrega <li>Item</li>
 			nuevoContenido += agregarFinLista(); // Agrega </ul>
 
@@ -27,6 +25,30 @@ public class ItemLista extends Componente {
 		} else {
 			this.siguienteComponente.parsearMarkdown();
 		}
+	}
+
+	private String agregarInicioLista() {
+
+		int posicionActual = getContenidoOriginal().indexOf(componenteActual);
+
+		boolean dentroDelRangoInferior = posicionActual - 1 >= 0;
+		if (dentroDelRangoInferior) {
+
+			boolean anteriorTipoLista = getContenidoOriginal().get(posicionActual - 1).startsWith("*");
+			if (!anteriorTipoLista) {
+				return "<ul>";
+			}
+		} else {
+			return "<ul>";
+		}
+
+		return "";
+	}
+
+	private String agregarItemLista() {
+		String textoComponente = this.componenteActual.substring(2);
+		String itemLista = "<li>" + textoComponente + "</li>";
+		return itemLista;
 	}
 
 	private String agregarFinLista() {
@@ -38,17 +60,11 @@ public class ItemLista extends Componente {
 
 			boolean siguienteTipoLista = getContenidoOriginal().get(posicionActual + 1).startsWith("*");
 			if (!siguienteTipoLista) {
-				return lista.crearFin();
+				return "</ul>";
 			}
 		} else {
-			return lista.crearFin();
+			return "</ul>";
 		}
 		return "";
-	}
-
-	private String agregarItemLista() {
-		String textoComponente = this.componenteActual.substring(2);
-		String itemLista = "<li>" + textoComponente + "</li>";
-		return itemLista;
 	}
 }
