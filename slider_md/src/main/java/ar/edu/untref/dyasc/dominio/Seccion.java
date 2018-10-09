@@ -14,9 +14,28 @@ public class Seccion extends Componente {
 	@Override
 	void parsearMarkdown() {
 		if (this.componenteActual.startsWith("---")) {
-			agregarNuevoContenido("<section></section>");
+			agregarNuevoContenido(obtenerSeccion());
 		} else {
 			this.siguienteComponente.parsearMarkdown();
 		}
+	}
+
+	private String obtenerSeccion() {
+
+		int posicionActual = getContenidoOriginal().indexOf(componenteActual);
+
+		if (posicionActual == 0 && posicionActual == getContenidoOriginal().size() - 1) {
+			return "<section></section>";
+		} else if (posicionActual == 0) {
+			return "<section>";
+		} else if (posicionActual == getContenidoOriginal().size() - 1) {
+			return "</section>";
+		} else {
+			boolean anteriorEsTipoSeccion = getContenidoOriginal().get(posicionActual - 1).startsWith("---");
+			if (!anteriorEsTipoSeccion) {
+				return "</section><section>";
+			}
+		}
+		return "<section>";
 	}
 }

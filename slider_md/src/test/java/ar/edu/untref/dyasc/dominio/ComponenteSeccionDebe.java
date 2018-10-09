@@ -1,5 +1,8 @@
 package ar.edu.untref.dyasc.dominio;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,12 +22,33 @@ public class ComponenteSeccionDebe {
 	@Test
 	public void agregar_al_nuevo_contenido_la_etiqueta_seccion_cuando_solo_contiene_una_seccion() {
 
-		Seccion seccion = new Seccion(null, COMPONENTE_SECCION);
+		List<String> contenidoOriginal = new LinkedList<>();
+		contenidoOriginal.add(COMPONENTE_SECCION);
+
+		Seccion seccion = new Seccion(componenteH1, COMPONENTE_SECCION);
+		seccion.setContenidoOriginal(contenidoOriginal);
 		seccion.parsearMarkdown();
 
 		String obtenido = seccion.getNuevoContenido();
 
 		String esperado = "<section></section>";
+		Assert.assertEquals(esperado, obtenido);
+	}
+
+	@Test
+	public void agregar_al_nuevo_contenido_la_etiqueta_de_inicio_seccion_cuando_la_seccion_incluye_a_otro_componente() {
+
+		List<String> contenidoOriginal = new LinkedList<>();
+		contenidoOriginal.add(COMPONENTE_SECCION);
+		contenidoOriginal.add(COMPONENTE_H1);
+
+		Seccion seccion = new Seccion(componenteH1, COMPONENTE_SECCION);
+		seccion.setContenidoOriginal(contenidoOriginal);
+		seccion.parsearMarkdown();
+
+		String obtenido = seccion.getNuevoContenido();
+
+		String esperado = "<section>";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
