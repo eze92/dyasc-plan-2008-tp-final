@@ -13,5 +13,6 @@ public class Seccion extends Componente {
 
 	@Override
 	void parsearMarkdown() {
+		agregarNuevoContenido("<section></section>");
 	}
 }
