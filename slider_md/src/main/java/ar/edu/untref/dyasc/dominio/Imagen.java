@@ -15,9 +15,7 @@ public class Imagen extends Componente {
 	@Override
 	void parsearMarkdown() {
 
-		String etiqueta = this.componenteActual.substring(0, 2);
-
-		if (etiqueta.equals("i:")) {
+		if (this.componenteActual.startsWith("i:")) {
 			String textoComponente = this.componenteActual.substring(2);
 			String nuevoContenido = "<img src=\"" + textoComponente + "\"/>";
 			agregarNuevoContenido(nuevoContenido);

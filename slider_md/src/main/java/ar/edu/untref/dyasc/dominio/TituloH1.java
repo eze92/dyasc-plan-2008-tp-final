@@ -15,9 +15,7 @@ public class TituloH1 extends Componente {
 	@Override
 	void parsearMarkdown() {
 
-		String etiqueta = this.componenteActual.substring(0, 2);
-
-		if (etiqueta.equals("# ")) {
+		if (this.componenteActual.startsWith("# ")) {
 			String textoComponente = this.componenteActual.substring(2);
 			String nuevoContenido = "<h1>" + textoComponente + "</h1>";
 			agregarNuevoContenido(nuevoContenido);

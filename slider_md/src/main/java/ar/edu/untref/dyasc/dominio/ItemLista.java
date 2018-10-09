@@ -4,34 +4,51 @@ public class ItemLista extends Componente {
 
 	private Componente siguienteComponente;
 	private String componenteActual;
+	private Lista lista;
 
-	public ItemLista(Componente siguienteComponente, String componenteActual) {
+	public ItemLista(Componente siguienteComponente, String componenteActual, Lista lista) {
 		super(siguienteComponente, componenteActual);
 
 		this.siguienteComponente = siguienteComponente;
 		this.componenteActual = componenteActual;
+		this.lista = lista;
 	}
 
 	@Override
 	void parsearMarkdown() {
 
-		String etiqueta = this.componenteActual.substring(0, 2);
+		if (this.componenteActual.startsWith("*")) {
 
-		if (etiqueta.equals("* ")) {
-
-			int posicionActual = getContenidoOriginal().indexOf(componenteActual);
-			String lineaSiguiente = getContenidoOriginal().get(posicionActual + 1);
-
-			String textoComponente = this.componenteActual.substring(2);
-			String nuevoContenido = "<ul><li>" + textoComponente + "</li></ul>";
-
-			if (lineaSiguiente.contains("*")) {
-				nuevoContenido = "<ul><li>" + textoComponente + "</li>";
-			}
+			String nuevoContenido = lista.crearInicio(); // Agrega <ul>
+			nuevoContenido += agregarItemLista(); // Agrega <li>Item</li>
+			nuevoContenido += agregarFinLista(); // Agrega </ul>
 
 			agregarNuevoContenido(nuevoContenido);
 		} else {
 			this.siguienteComponente.parsearMarkdown();
 		}
+	}
+
+	private String agregarFinLista() {
+
+		int posicionActual = getContenidoOriginal().indexOf(componenteActual);
+
+		boolean dentroDelRangoSuperior = posicionActual + 1 <= getContenidoOriginal().size();
+		if (dentroDelRangoSuperior) {
+
+			boolean siguienteTipoLista = getContenidoOriginal().get(posicionActual + 1).startsWith("*");
+			if (!siguienteTipoLista) {
+				return lista.crearFin();
+			}
+		} else {
+			return lista.crearFin();
+		}
+		return "";
+	}
+
+	private String agregarItemLista() {
+		String textoComponente = this.componenteActual.substring(2);
+		String itemLista = "<li>" + textoComponente + "</li>";
+		return itemLista;
 	}
 }
