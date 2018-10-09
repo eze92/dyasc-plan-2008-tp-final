@@ -3,36 +3,38 @@ package ar.edu.untref.dyasc.salida;
 import java.io.File;
 import java.io.IOException;
 
+import org.junit.Assert;
 import org.junit.Test;
-
-import junit.framework.Assert;
+import ar.edu.untref.dyasc.salida.CopiadoDeCarpeta;
+import ar.edu.untref.dyasc.salida.NoExisteDirectorioException;
 
 public class CopiadoDeCarpetaTest {
 
-	@Test
-	public void seCopiaCarpetaDelDirectorioCorrectamente() throws IOException {
-		String rutaOrigen = System.getProperty("user.dir");
-		String rutaDestino = (rutaOrigen + "/carpetaPruebaCopia");
+    @Test
+    public void seCopiaCarpetaDelDirectorioCorrectamente() throws IOException, NoExisteDirectorioException {
+        String rutaOrigen = System.getProperty("user.dir");
+        String rutaDestino = (rutaOrigen + "/carpetaPruebaCopia");
 
-		File carpetaOrigen = new File(rutaOrigen);
-		File carpetaDestino = new File(rutaDestino);
-		CopiadoDeCarpeta realizarCopia = new CopiadoDeCarpeta();
-		realizarCopia.copiarArchivos(carpetaOrigen, carpetaDestino);
+        File carpetaOrigen = new File(rutaOrigen);
+        File carpetaDestino = new File(rutaDestino);
+        CopiadoDeCarpeta realizarCopia = new CopiadoDeCarpeta();
+        realizarCopia.copiarArchivos(carpetaOrigen, carpetaDestino);
 
-		Assert.assertTrue(carpetaDestino.exists());
-	}
+        Assert.assertTrue(carpetaDestino.exists());
+    }
 
-	public void carpetaInexistenteParaCopiar() throws IOException {
+    @Test
+    public void carpetaInexistenteParaCopiar() throws IOException, NoExisteDirectorioException {
 
-		String rutaOrigen = "DirectorioIncorrecto";
-		String rutaDestino = (rutaOrigen + "/pruebaCarpetaCopia");
+        String rutaOrigen = "DirectorioIncorrecto";
+        String rutaDestino = (rutaOrigen + "/pruebaCarpetaCopia");
 
-		File carpetaOrigen = new File(rutaOrigen);
-		File carpetaDestino = new File(rutaDestino);
-		CopiadoDeCarpeta realizarCopia = new CopiadoDeCarpeta();
-		realizarCopia.copiarArchivos(carpetaOrigen, carpetaDestino);
+        File carpetaOrigen = new File(rutaOrigen);
+        File carpetaDestino = new File(rutaDestino);
+        CopiadoDeCarpeta realizarCopia = new CopiadoDeCarpeta();
+        realizarCopia.copiarArchivos(carpetaOrigen, carpetaDestino);
 
-		Assert.assertTrue(carpetaDestino.exists());
+        Assert.assertFalse(carpetaDestino.exists());
 
-	}
+    }
 }
