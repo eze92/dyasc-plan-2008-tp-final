@@ -1,8 +1,10 @@
 package ar.edu.untref.dyasc.salida;
 
-public class SalidaPantalla implements Salida {
+import java.util.List;
 
-	public void imprimir(String unMensaje) {
-		System.out.println(unMensaje);
+public class SalidaPantalla {
+
+	public void imprimir(List<String> componente) {
+		System.out.println(componente);
 	}
 }
