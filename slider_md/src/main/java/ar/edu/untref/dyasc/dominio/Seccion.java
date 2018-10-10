@@ -4,38 +4,46 @@ public class Seccion extends Componente {
 
 	private Componente siguienteComponente;
 	private String componenteActual;
+	private boolean seccionAbierta = false;
 
 	public Seccion(Componente siguienteComponente, String componenteActual) {
 		super(siguienteComponente, componenteActual);
+
 		this.siguienteComponente = siguienteComponente;
 		this.componenteActual = componenteActual;
 	}
 
 	@Override
 	void parsearMarkdown() {
-		if (this.componenteActual.startsWith("---")) {
-			agregarNuevoContenido(obtenerSeccion());
+		int posicionActual = getContenidoOriginal().indexOf(componenteActual);
+
+		if (this.componenteActual.startsWith("---") || posicionActual == getContenidoOriginal().size() - 1) {
+			agregarNuevoContenido(obtenerSeccion(posicionActual));
 		} else {
 			this.siguienteComponente.parsearMarkdown();
 		}
 	}
 
-	private String obtenerSeccion() {
+	private String obtenerSeccion(int posicionActual) {
 
-		int posicionActual = getContenidoOriginal().indexOf(componenteActual);
+		String inicioSeccion = "<section>";
+		String seccionIntermedia = "<section></section>";
+		String finSeccion = "</section>";
 
-		if (posicionActual == 0 && posicionActual == getContenidoOriginal().size() - 1) {
-			return "<section></section>";
+		if (getContenidoOriginal().size() == 1) {
+			return seccionIntermedia;
 		} else if (posicionActual == 0) {
-			return "<section>";
+			seccionAbierta = true;
+			return inicioSeccion;
 		} else if (posicionActual == getContenidoOriginal().size() - 1) {
-			return "</section>";
+			seccionAbierta = false;
+			return finSeccion;
+		} else if (seccionAbierta) {
+			seccionAbierta = true;
+			return seccionIntermedia;
 		} else {
-			boolean anteriorEsTipoSeccion = getContenidoOriginal().get(posicionActual - 1).startsWith("---");
-			if (!anteriorEsTipoSeccion) {
-				return "</section><section>";
-			}
+			seccionAbierta = true;
+			return inicioSeccion;
 		}
-		return "<section>";
 	}
 }

@@ -6,10 +6,8 @@ public abstract class Componente {
 
 	private List<String> contenidoOriginal;
 	private String nuevoContenido = "";
-	private String componenteActual;
 
 	public Componente(Componente siguienteComponente, String componenteActual) {
-		this.componenteActual = componenteActual;
 	}
 
 	abstract void parsearMarkdown();

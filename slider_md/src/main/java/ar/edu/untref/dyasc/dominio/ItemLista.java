@@ -17,9 +17,9 @@ public class ItemLista extends Componente {
 
 		if (this.componenteActual.startsWith("*")) {
 
-			String nuevoContenido = agregarInicioLista(); // Agrega <ul>
-			nuevoContenido += agregarItemLista(); // Agrega <li>Item</li>
-			nuevoContenido += agregarFinLista(); // Agrega </ul>
+			String nuevoContenido = agregarInicioLista(); 	// Agrega <ul>
+			nuevoContenido += agregarItemLista(); 			// Agrega <li>Item</li>
+			nuevoContenido += agregarFinLista(); 			// Agrega </ul>
 
 			agregarNuevoContenido(nuevoContenido);
 		} else {
