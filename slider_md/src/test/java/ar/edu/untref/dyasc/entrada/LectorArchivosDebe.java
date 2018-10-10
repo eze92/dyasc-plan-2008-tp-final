@@ -1,4 +1,4 @@
-package ar.edu.untref.dyasc;
+package ar.edu.untref.dyasc.entrada;
 
 import org.junit.Assert;
 import org.junit.Before;

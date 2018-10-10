@@ -1,9 +1,9 @@
-package ar.edu.untref.dyasc;
+package ar.edu.untref.dyasc.entrada;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.dyasc.entrada.Entrada;
+
 
 public class ValidacionEntradaDebe {
 
