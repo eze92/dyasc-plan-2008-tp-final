@@ -9,7 +9,7 @@ public class SalidaArchivo implements Salida {
 	}
 
 	@Override
-	public void mostrar(String unMensaje) {
+	public void imprimir(String unMensaje) {
 		System.out.print(unMensaje);
 	}
 }
