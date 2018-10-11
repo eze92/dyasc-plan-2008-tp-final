@@ -7,10 +7,8 @@ import java.util.List;
 
 public class SalidaArchivo {
 
-    private String archivoSalida;
 
-    public SalidaArchivo(String unArchivo) {
-        this.archivoSalida = unArchivo;
+    public SalidaArchivo() {
     }
 
     public void imprimir(String archivo, List<String> componente) throws IOException {
