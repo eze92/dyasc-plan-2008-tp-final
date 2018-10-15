@@ -1,9 +1,7 @@
 package ar.edu.untref.dyasc.dominio;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -18,23 +16,29 @@ public class ComponenteItemListaDebe {
 	private static final String ITEM_LISTA_3 = "* Item 3";
 	private static final String COMPONENTE_SECCION = "---";
 
-	@Mock Seccion componenteSeccion;
+	@Mock
+	Seccion componenteSeccion;
+
+	private Contexto contexto;
+
+	@Before
+	public void inicializar() {
+		contexto = new Contexto();
+	}
 
 	@Test
 	public void agregar_al_nuevo_contenido_la_etiqueta_lista_con_un_solo_item() {
 
-		List<String> contenidoOriginal = new LinkedList<>();
-		contenidoOriginal.add(ITEM_LISTA);
-		contenidoOriginal.add(COMPONENTE_SECCION);
+		String[] contenidoOriginal = { ITEM_LISTA, COMPONENTE_SECCION };
+		contexto.setContenidoOriginal(contenidoOriginal);
 
-		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA);
-		componenteItemLista.setContenidoOriginal(contenidoOriginal);
+		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA, contexto, 0);
 		componenteItemLista.parsearMarkdown();
 
-		String obtenido = componenteItemLista.getNuevoContenido();
+		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<ul>" +
-							"<li>Item 1</li>" +
+		String esperado = "<ul>" + 
+							"<li>Item 1</li>" + 
 						  "</ul>";
 		Assert.assertEquals(esperado, obtenido);
 	}
@@ -42,18 +46,16 @@ public class ComponenteItemListaDebe {
 	@Test
 	public void agregar_al_nuevo_contenido_la_etiqueta_lista_con_un_solo_item_y_diferente_contenido() {
 
-		List<String> contenidoOriginal = new LinkedList<>();
-		contenidoOriginal.add(ITEM_LISTA_2);
-		contenidoOriginal.add(COMPONENTE_SECCION);
+		String[] contenidoOriginal = { ITEM_LISTA_2, COMPONENTE_SECCION };
+		contexto.setContenidoOriginal(contenidoOriginal);
 
-		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA_2);
-		componenteItemLista.setContenidoOriginal(contenidoOriginal);
+		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA_2, contexto, 0);
 		componenteItemLista.parsearMarkdown();
 
-		String obtenido = componenteItemLista.getNuevoContenido();
+		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<ul>" +
-							"<li>Item 2</li>" +
+		String esperado = "<ul>" + 
+							"<li>Item 2</li>" + 
 						  "</ul>";
 		Assert.assertEquals(esperado, obtenido);
 	}
@@ -61,18 +63,15 @@ public class ComponenteItemListaDebe {
 	@Test
 	public void agregar_al_nuevo_contenido_la_etiqueta_inicial_de_la_lista_cuando_hay_mas_de_un_item_de_lista() {
 
-		List<String> contenidoOriginal = new LinkedList<>();
-		contenidoOriginal.add(ITEM_LISTA);
-		contenidoOriginal.add(ITEM_LISTA_2);
-		contenidoOriginal.add(COMPONENTE_SECCION);
+		String[] contenidoOriginal = { ITEM_LISTA, ITEM_LISTA_2, COMPONENTE_SECCION };
+		contexto.setContenidoOriginal(contenidoOriginal);
 
-		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA);
-		componenteItemLista.setContenidoOriginal(contenidoOriginal);
+		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA, contexto, 0);
 		componenteItemLista.parsearMarkdown();
 
-		String obtenido = componenteItemLista.getNuevoContenido();
+		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<ul>" +
+		String esperado = "<ul>" + 
 							"<li>Item 1</li>";
 		Assert.assertEquals(esperado, obtenido);
 	}
@@ -80,18 +79,16 @@ public class ComponenteItemListaDebe {
 	@Test
 	public void agregar_al_nuevo_contenido_la_etiqueta_final_de_la_lista_cuando_hay_dos_items_de_lista() {
 
-		List<String> contenidoOriginal = new LinkedList<>();
-		contenidoOriginal.add(ITEM_LISTA);
-		contenidoOriginal.add(ITEM_LISTA_2);
-		contenidoOriginal.add(COMPONENTE_SECCION);
+		String[] contenidoOriginal = { ITEM_LISTA, ITEM_LISTA_2, COMPONENTE_SECCION };
+		contexto.setContenidoOriginal(contenidoOriginal);
+		contexto.listaAbierta(true);
 
-		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA_2);
-		componenteItemLista.setContenidoOriginal(contenidoOriginal);
+		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA_2, contexto, 1);
 		componenteItemLista.parsearMarkdown();
 
-		String obtenido = componenteItemLista.getNuevoContenido();
+		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<li>Item 2</li>" +
+		String esperado = "<li>Item 2</li>" + 
 						"</ul>";
 		Assert.assertEquals(esperado, obtenido);
 	}
@@ -99,17 +96,14 @@ public class ComponenteItemListaDebe {
 	@Test
 	public void agregar_al_nuevo_contenido_la_etiqueta_intermedia_cuando_hay_mas_de_dos_items_de_lista() {
 
-		List<String> contenidoOriginal = new LinkedList<>();
-		contenidoOriginal.add(ITEM_LISTA);
-		contenidoOriginal.add(ITEM_LISTA_2);
-		contenidoOriginal.add(ITEM_LISTA_3);
-		contenidoOriginal.add(COMPONENTE_SECCION);
+		String[] contenidoOriginal = { ITEM_LISTA, ITEM_LISTA_2, ITEM_LISTA_3, COMPONENTE_SECCION };
+		contexto.setContenidoOriginal(contenidoOriginal);
+		contexto.listaAbierta(true);
 
-		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA_2);
-		componenteItemLista.setContenidoOriginal(contenidoOriginal);
+		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA_2, contexto, 1);
 		componenteItemLista.parsearMarkdown();
 
-		String obtenido = componenteItemLista.getNuevoContenido();
+		String obtenido = contexto.getNuevoContenido();
 
 		String esperado = "<li>Item 2</li>";
 		Assert.assertEquals(esperado, obtenido);
@@ -118,7 +112,7 @@ public class ComponenteItemListaDebe {
 	@Test
 	public void verificar_que_se_llama_a_otro_componente_cuando_la_etiqueta_no_corresponde_a_un_item_de_lista() {
 
-		ItemLista componenteItemLista = new ItemLista(componenteSeccion, COMPONENTE_SECCION);
+		ItemLista componenteItemLista = new ItemLista(componenteSeccion, COMPONENTE_SECCION, contexto, 0);
 		componenteItemLista.parsearMarkdown();
 
 		Mockito.verify(componenteSeccion).parsearMarkdown();

@@ -4,12 +4,14 @@ public class TituloH1 extends Componente {
 
 	private Componente siguienteComponente;
 	private String componenteActual;
+	private Contexto contexto;
 
-	public TituloH1(Componente siguienteComponente, String componenteActual) {
-		super(siguienteComponente, componenteActual);
+	public TituloH1(Componente siguienteComponente, String componenteActual, Contexto contexto) {
+		super(siguienteComponente, componenteActual, contexto);
 
 		this.siguienteComponente = siguienteComponente;
 		this.componenteActual = componenteActual;
+		this.contexto = contexto;
 	}
 
 	@Override
@@ -18,7 +20,7 @@ public class TituloH1 extends Componente {
 		if (this.componenteActual.startsWith("# ")) {
 			String textoComponente = this.componenteActual.substring(2);
 			String nuevoContenido = "<h1>" + textoComponente + "</h1>";
-			agregarNuevoContenido(nuevoContenido);
+			contexto.agregarNuevoContenido(nuevoContenido);
 		} else {
 			this.siguienteComponente.parsearMarkdown();
 		}

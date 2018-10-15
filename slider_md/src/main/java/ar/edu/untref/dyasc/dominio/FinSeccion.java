@@ -6,7 +6,7 @@ public class FinSeccion extends Componente {
 	private String expresionActual;
 
 	public FinSeccion(Componente siguienteComponente, String expresionActual, Contexto contexto) {
-		super(siguienteComponente, expresionActual);
+		super(siguienteComponente, expresionActual, contexto);
 
 		this.expresionActual = expresionActual;
 		this.contexto = contexto;

@@ -11,7 +11,7 @@ public class Seccion extends Componente {
 	private Contexto contexto;
 
 	public Seccion(Componente siguienteComponente, String expresionActual, Contexto contexto) {
-		super(siguienteComponente, expresionActual);
+		super(siguienteComponente, expresionActual, contexto);
 
 		this.siguienteComponente = siguienteComponente;
 		this.expresionActual = expresionActual;

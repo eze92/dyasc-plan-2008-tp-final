@@ -4,7 +4,17 @@ public class Contexto {
 
 	private String[] contenidoOriginal;
 	private String nuevoContenido = "";
+
 	private boolean seccionAbierta = false;
+	private boolean listaAbierta = false;
+
+	public boolean hayListaAbierta() {
+		return listaAbierta;
+	}
+
+	public void listaAbierta(boolean listaAbierta) {
+		this.listaAbierta = listaAbierta;
+	}
 
 	public boolean haySeccionAbierta() {
 		return seccionAbierta;
@@ -14,11 +24,7 @@ public class Contexto {
 		this.seccionAbierta = seccionAbierta;
 	}
 
-	public boolean enFinDeArchivo() {
-		return false;
-	}
-
-	void agregarNuevoContenido(String nuevoComponente) {
+	public void agregarNuevoContenido(String nuevoComponente) {
 		this.nuevoContenido += nuevoComponente;
 	}
 

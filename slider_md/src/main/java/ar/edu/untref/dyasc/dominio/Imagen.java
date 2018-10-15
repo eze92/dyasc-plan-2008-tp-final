@@ -4,12 +4,14 @@ public class Imagen extends Componente {
 
 	private String componenteActual;
 	private Componente siguienteComponente;
+	private Contexto contexto;
 
-	public Imagen(Componente siguienteComponente, String componenteActual) {
-		super(siguienteComponente, componenteActual);
+	public Imagen(Componente siguienteComponente, String componenteActual, Contexto contexto) {
+		super(siguienteComponente, componenteActual, contexto);
 
 		this.siguienteComponente = siguienteComponente;
 		this.componenteActual = componenteActual;
+		this.contexto = contexto;
 	}
 
 	@Override
@@ -18,7 +20,7 @@ public class Imagen extends Componente {
 		if (this.componenteActual.startsWith("i:")) {
 			String textoComponente = this.componenteActual.substring(2);
 			String nuevoContenido = "<img src=\"" + textoComponente + "\"/>";
-			agregarNuevoContenido(nuevoContenido);
+			contexto.agregarNuevoContenido(nuevoContenido);
 		} else {
 			this.siguienteComponente.parsearMarkdown();
 		}

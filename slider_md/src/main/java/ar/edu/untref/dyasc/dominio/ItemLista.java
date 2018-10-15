@@ -2,14 +2,21 @@ package ar.edu.untref.dyasc.dominio;
 
 public class ItemLista extends Componente {
 
+	private static final String CIERRE_LISTA = "</ul>";
+	private static final String INICIO_LISTA = "<ul>";
+
 	private Componente siguienteComponente;
 	private String componenteActual;
+	private Contexto contexto;
+	private int posicionActual;
 
-	public ItemLista(Componente siguienteComponente, String componenteActual) {
-		super(siguienteComponente, componenteActual);
+	public ItemLista(Componente siguienteComponente, String componenteActual, Contexto contexto, int posicionActual) {
+		super(siguienteComponente, componenteActual, contexto);
 
 		this.siguienteComponente = siguienteComponente;
 		this.componenteActual = componenteActual;
+		this.contexto = contexto;
+		this.posicionActual = posicionActual;
 	}
 
 	@Override
@@ -17,11 +24,21 @@ public class ItemLista extends Componente {
 
 		if (this.componenteActual.startsWith("*")) {
 
-			String nuevoContenido = agregarInicioLista(); 	// Agrega <ul>
-			nuevoContenido += agregarItemLista(); 			// Agrega <li>Item</li>
-			nuevoContenido += agregarFinLista(); 			// Agrega </ul>
+			String nuevoContenido = "";
 
-			agregarNuevoContenido(nuevoContenido);
+			if (!contexto.hayListaAbierta()) {
+				nuevoContenido = INICIO_LISTA;
+				contexto.listaAbierta(true);
+			}
+
+			nuevoContenido += agregarItemLista();
+
+			if (contexto.hayListaAbierta()) {
+				nuevoContenido += agregarFinLista();
+				contexto.listaAbierta(false);
+			}
+
+			contexto.agregarNuevoContenido(nuevoContenido);
 		} else {
 			this.siguienteComponente.parsearMarkdown();
 		}
@@ -33,37 +50,19 @@ public class ItemLista extends Componente {
 		return itemLista;
 	}
 
-	private String agregarInicioLista() {
-
-		int posicionActual = getContenidoOriginal().indexOf(componenteActual);
-
-		boolean dentroDelRangoInferior = posicionActual - 1 >= 0;
-		if (dentroDelRangoInferior) {
-
-			boolean anteriorEsTipoLista = getContenidoOriginal().get(posicionActual - 1).startsWith("*");
-			if (!anteriorEsTipoLista) {
-				return "<ul>";
-			}
-		} else {
-			return "<ul>";
-		}
-		return "";
-	}
-
 	private String agregarFinLista() {
 
-		int posicionActual = getContenidoOriginal().indexOf(componenteActual);
-
-		boolean dentroDelRangoSuperior = posicionActual + 1 <= getContenidoOriginal().size();
+		boolean dentroDelRangoSuperior = posicionActual + 1 <= contexto.getContenidoOriginal().length;
 		if (dentroDelRangoSuperior) {
 
-			boolean siguienteEsTipoLista = getContenidoOriginal().get(posicionActual + 1).startsWith("*");
+			boolean siguienteEsTipoLista = contexto.getContenidoOriginal()[posicionActual + 1].startsWith("*");
 			if (!siguienteEsTipoLista) {
-				return "</ul>";
+				return CIERRE_LISTA;
+			} else {
+				return "";
 			}
 		} else {
-			return "</ul>";
+			return CIERRE_LISTA;
 		}
-		return "";
 	}
 }
