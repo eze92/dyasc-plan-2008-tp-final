@@ -23,11 +23,12 @@ public class SalidaArchivo extends Salida {
 		String directorio = (System.getProperty("user.dir") + "/" + rutaArchivo + "/index.html");
 
 		// Copia toda la carpeta plantilla (Tengo entendido que es siempre la misma carpeta origen)
+		// En el tp solamente aparece la plantilla en la carpeta del jar
 		copiadoDeCarpeta.copiarArchivos(new File("./target/plantilla"), new File(rutaArchivo));
 
 		
 		// Reemplaza lo que esta en el index
-		// No veo entiendo para que se hace un replace si despues se escribe mas abajo el archivo
+		// No entiendo para que se hace un replace si despues se escribe mas abajo el archivo
 		File directorioArchivo = new File(directorio);
 		FileReader lectorDeArchivo = new FileReader(directorioArchivo);
 		BufferedReader lectorDeLineasDeArchivo = new BufferedReader(lectorDeArchivo);
