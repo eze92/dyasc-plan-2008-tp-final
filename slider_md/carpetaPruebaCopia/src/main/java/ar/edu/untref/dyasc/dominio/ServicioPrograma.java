@@ -18,14 +18,13 @@ public class ServicioPrograma {
 	}
 
 	public String obtenerSalida() {
-
-		FinSeccion finSeccion = new FinSeccion(null);
-		Imagen imagen = new Imagen(finSeccion);
-		ItemLista lista = new ItemLista(imagen);
-		TituloH2 h2 = new TituloH2(lista);
-		TituloH1 h1 = new TituloH1(h2);
-		Seccion seccion = new Seccion(h1);
-		seccion.setContexto(contexto);
+		
+		FinSeccion finSeccion = new FinSeccion(null, contexto);
+		Imagen imagen = new Imagen(finSeccion, contexto);
+		ItemLista lista = new ItemLista(imagen, contexto);
+		TituloH2 tituloH2 = new TituloH2(lista, contexto);
+		TituloH1 tituloH1 = new TituloH1(tituloH2, contexto);
+		Seccion seccion = new Seccion(tituloH1, contexto);
 
 		String[] contenidoOriginal = contexto.getContenidoOriginal();
 

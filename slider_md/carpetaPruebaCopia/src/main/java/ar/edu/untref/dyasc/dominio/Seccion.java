@@ -7,17 +7,19 @@ public class Seccion extends Componente {
 	private static final String INICIO_SECCION = "<section>";
 
 	private Componente siguienteComponente;
+	private Contexto contexto;
 
-	public Seccion(Componente siguienteComponente) {
-		super(siguienteComponente);
+	public Seccion(Componente siguienteComponente, Contexto contexto) {
+		super(siguienteComponente, contexto);
 
 		this.siguienteComponente = siguienteComponente;
+		this.contexto = contexto;
 	}
 
 	@Override
 	void parsearMarkdown() {
-		if (getContexto().getExpresionActual().startsWith("---")) {
-			getContexto().agregarNuevoContenido(obtenerEtiqueta());
+		if (contexto.getExpresionActual().startsWith("---")) {
+			contexto.agregarNuevoContenido(obtenerEtiqueta());
 		} else {
 			this.siguienteComponente.parsearMarkdown();
 		}
@@ -27,17 +29,17 @@ public class Seccion extends Componente {
 
 		String etiqueta = "";
 
-		if (getContexto().soloSeccion()) {
+		if (contexto.soloSeccion()) {
 			etiqueta = INICIO_FIN;
 		} else {
 
-			if (getContexto().haySeccionAbierta()) {
+			if (contexto.haySeccionAbierta()) {
 				etiqueta = SECCION_INTERMEDIA;
 			} else {
 				etiqueta = INICIO_SECCION;
 			}
 
-			getContexto().seccionAbierta(true);
+			contexto.seccionAbierta(true);
 		}
 		return etiqueta;
 	}

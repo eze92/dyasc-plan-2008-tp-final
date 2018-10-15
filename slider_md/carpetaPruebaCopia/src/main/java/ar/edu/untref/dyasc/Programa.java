@@ -3,15 +3,18 @@ package ar.edu.untref.dyasc;
 import ar.edu.untref.dyasc.dominio.Contexto;
 import ar.edu.untref.dyasc.dominio.ServicioPrograma;
 import ar.edu.untref.dyasc.entrada.Entrada;
+import ar.edu.untref.dyasc.entrada.ExepcionArchivoNoEncontrado;
 import ar.edu.untref.dyasc.entrada.LectorArchivos;
-import ar.edu.untref.dyasc.salida.CopiadoDeCarpeta;
-import ar.edu.untref.dyasc.salida.SalidaPantalla;
 
 public class Programa {
 
-    public static void main(String[] args) {
-    
-    	Entrada entrada = new Entrada(args);
+	private static final String MODO_DEFAULT = "--mode=default";
+	private static final String MODO_SIN_SALIDA = "--mode=no-output";
+	private static final String MODO_SALIDA = "--output=nombre_de_archivo";
+
+	public static void main(String[] args) throws ExepcionArchivoNoEncontrado {
+
+		Entrada entrada = new Entrada(args);
 
 		if (entrada.nombreValido()) {
 
@@ -28,23 +31,10 @@ public class Programa {
 
 			// Salida
 			if (entrada.esModoSalida()) {
-			
-				CopiadoDeCarpeta copiadoDeCarpeta = new CopiadoDeCarpeta();
-				copiadoDeCarpeta.copiarArchivos(directorioOrigen, directorioDestino);
-				
-				/*
-				 * if(esModoDefault()) {
-				 * 	carpeta = nombreArchivo();
-				 * } else {
-				 * 	carpeta = nombreCarpeta();
-				 * }
-				 *  SalidaArchivo.escribir(carpeta + "/" + nombreArchivo, contenidoSalida);
-				 */
-				
+
 			} else {
-				SalidaPantalla pantalla = new SalidaPantalla();
-				pantalla.imprimir(contenidoSalida);
+				
 			}
 		}
-    }
+	}
 }

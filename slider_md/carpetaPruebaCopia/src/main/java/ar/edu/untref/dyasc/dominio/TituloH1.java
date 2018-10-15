@@ -3,20 +3,22 @@ package ar.edu.untref.dyasc.dominio;
 public class TituloH1 extends Componente {
 
 	private Componente siguienteComponente;
+	private Contexto contexto;
 
-	public TituloH1(Componente siguienteComponente) {
-		super(siguienteComponente);
+	public TituloH1(Componente siguienteComponente, Contexto contexto) {
+		super(siguienteComponente, contexto);
 
 		this.siguienteComponente = siguienteComponente;
+		this.contexto = contexto;
 	}
 
 	@Override
 	void parsearMarkdown() {
 
-		if (getContexto().getExpresionActual().startsWith("# ")) {
-			String textoComponente = getContexto().getExpresionActual().substring(2);
+		if (contexto.getExpresionActual().startsWith("# ")) {
+			String textoComponente = contexto.getExpresionActual().substring(2);
 			String nuevoContenido = "<h1>" + textoComponente + "</h1>";
-			getContexto().agregarNuevoContenido(nuevoContenido);
+			contexto.agregarNuevoContenido(nuevoContenido);
 		} else {
 			this.siguienteComponente.parsearMarkdown();
 		}

@@ -3,20 +3,22 @@ package ar.edu.untref.dyasc.dominio;
 public class Imagen extends Componente {
 
 	private Componente siguienteComponente;
+	private Contexto contexto;
 
-	public Imagen(Componente siguienteComponente) {
-		super(siguienteComponente);
+	public Imagen(Componente siguienteComponente, Contexto contexto) {
+		super(siguienteComponente, contexto);
 
 		this.siguienteComponente = siguienteComponente;
+		this.contexto = contexto;
 	}
 
 	@Override
 	void parsearMarkdown() {
 
-		if (getContexto().getExpresionActual().startsWith("i:")) {
-			String textoComponente = getContexto().getExpresionActual().substring(2);
+		if (contexto.getExpresionActual().startsWith("i:")) {
+			String textoComponente = contexto.getExpresionActual().substring(2);
 			String nuevoContenido = "<img src=\"" + textoComponente + "\"/>";
-			getContexto().agregarNuevoContenido(nuevoContenido);
+			contexto.agregarNuevoContenido(nuevoContenido);
 		} else {
 			this.siguienteComponente.parsearMarkdown();
 		}

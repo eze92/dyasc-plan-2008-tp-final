@@ -29,7 +29,7 @@ public class GeneradorDeArchivo {
 		lectorDeArchivo.close();
 		lectorDeLineasDeArchivo.close();
 
-		salida.imprimir(directorio, lineas);
+		salida.escribir(directorio, lineas);
 	}
 
 	public boolean existeArchivo(String ruta) {
