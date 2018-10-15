@@ -3,18 +3,15 @@ package ar.edu.untref.dyasc.dominio;
 public class FinSeccion extends Componente {
 
 	private Contexto contexto;
-	private String expresionActual;
 
-	public FinSeccion(Componente siguienteComponente, String expresionActual, Contexto contexto) {
-		super(siguienteComponente, expresionActual, contexto);
-
-		this.expresionActual = expresionActual;
+	public FinSeccion(Componente siguienteComponente, Contexto contexto) {
+		super(siguienteComponente, contexto);
 		this.contexto = contexto;
 	}
 
 	@Override
 	void parsearMarkdown() {
-		if (this.expresionActual.equals("FIN")) {
+		if (contexto.getExpresionActual().equals("FIN")) {
 			contexto.agregarNuevoContenido("</section>");
 		}
 	}

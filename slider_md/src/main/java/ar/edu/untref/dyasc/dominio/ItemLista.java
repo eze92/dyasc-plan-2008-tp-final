@@ -6,23 +6,19 @@ public class ItemLista extends Componente {
 	private static final String INICIO_LISTA = "<ul>";
 
 	private Componente siguienteComponente;
-	private String componenteActual;
 	private Contexto contexto;
-	private int posicionActual;
 
-	public ItemLista(Componente siguienteComponente, String componenteActual, Contexto contexto, int posicionActual) {
-		super(siguienteComponente, componenteActual, contexto);
+	public ItemLista(Componente siguienteComponente, Contexto contexto) {
+		super(siguienteComponente, contexto);
 
 		this.siguienteComponente = siguienteComponente;
-		this.componenteActual = componenteActual;
 		this.contexto = contexto;
-		this.posicionActual = posicionActual;
 	}
 
 	@Override
 	void parsearMarkdown() {
 
-		if (this.componenteActual.startsWith("*")) {
+		if (contexto.getExpresionActual().startsWith("*")) {
 
 			String nuevoContenido = "";
 
@@ -45,17 +41,17 @@ public class ItemLista extends Componente {
 	}
 
 	private String agregarItemLista() {
-		String textoComponente = this.componenteActual.substring(2);
+		String textoComponente = contexto.getExpresionActual().substring(2);
 		String itemLista = "<li>" + textoComponente + "</li>";
 		return itemLista;
 	}
 
 	private String agregarFinLista() {
 
-		boolean dentroDelRangoSuperior = posicionActual + 1 <= contexto.getContenidoOriginal().length;
+		boolean dentroDelRangoSuperior = contexto.getPosicionActual() + 1 <= contexto.getContenidoOriginal().length;
 		if (dentroDelRangoSuperior) {
 
-			boolean siguienteEsTipoLista = contexto.getContenidoOriginal()[posicionActual + 1].startsWith("*");
+			boolean siguienteEsTipoLista = contexto.getContenidoOriginal()[contexto.getPosicionActual() + 1].startsWith("*");
 			if (!siguienteEsTipoLista) {
 				return CIERRE_LISTA;
 			}

@@ -13,4 +13,15 @@ public class ServicioEntrada {
 		String[] contenidoOriginal = documento.split("\n");
 		contexto.setContenidoOriginal(contenidoOriginal);
 	}
+
+	public String obtenerSalida(Componente componente) {
+
+		String[] contenidoOriginal = contexto.getContenidoOriginal();
+
+		for (int i = 0; i < contenidoOriginal.length; i++) {
+			contexto.setExpresionActual(contenidoOriginal[i]);
+			componente.parsearMarkdown();
+		}
+		return contexto.getNuevoContenido();
+	}
 }

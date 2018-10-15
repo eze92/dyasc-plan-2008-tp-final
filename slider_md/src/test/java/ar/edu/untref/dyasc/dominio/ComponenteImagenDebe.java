@@ -29,7 +29,8 @@ public class ComponenteImagenDebe {
 	@Test
 	public void agregar_al_nuevo_contenido_la_etiqueta_imagen_con_el_nombre_correspondiente() {
 
-		componenteImagen = new Imagen(null, COMPONENTE_IMAGEN, contexto);
+		contexto.setExpresionActual(COMPONENTE_IMAGEN);
+		componenteImagen = new Imagen(null, contexto);
 		componenteImagen.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -41,7 +42,8 @@ public class ComponenteImagenDebe {
 	@Test
 	public void agregar_al_nuevo_contenido_la_etiqueta_imagen_para_un_componente_con_diferente_texto() {
 
-		componenteImagen = new Imagen(null, OTRO_COMPONENTE_IMAGEN, contexto);
+		contexto.setExpresionActual(OTRO_COMPONENTE_IMAGEN);
+		componenteImagen = new Imagen(null, contexto);
 		componenteImagen.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -53,7 +55,8 @@ public class ComponenteImagenDebe {
 	@Test
 	public void verificar_que_se_llama_a_otro_componente_cuando_la_etiqueta_no_corresponde_a_h1() {
 
-		componenteImagen = new Imagen(componenteLista, COMPONENTE_LISTA, contexto);
+		contexto.setExpresionActual(COMPONENTE_LISTA);
+		componenteImagen = new Imagen(componenteLista, contexto);
 		componenteImagen.parsearMarkdown();
 
 		Mockito.verify(componenteLista).parsearMarkdown();

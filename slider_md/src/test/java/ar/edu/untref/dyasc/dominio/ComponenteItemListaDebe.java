@@ -31,8 +31,10 @@ public class ComponenteItemListaDebe {
 
 		String[] contenidoOriginal = { ITEM_LISTA, COMPONENTE_SECCION };
 		contexto.setContenidoOriginal(contenidoOriginal);
+		contexto.setExpresionActual(ITEM_LISTA);
+		contexto.setPosicionActual(0);
 
-		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA, contexto, 0);
+		ItemLista componenteItemLista = new ItemLista(null, contexto);
 		componenteItemLista.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -48,8 +50,10 @@ public class ComponenteItemListaDebe {
 
 		String[] contenidoOriginal = { ITEM_LISTA_2, COMPONENTE_SECCION };
 		contexto.setContenidoOriginal(contenidoOriginal);
+		contexto.setExpresionActual(ITEM_LISTA_2);
+		contexto.setPosicionActual(0);
 
-		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA_2, contexto, 0);
+		ItemLista componenteItemLista = new ItemLista(null, contexto);
 		componenteItemLista.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -65,8 +69,10 @@ public class ComponenteItemListaDebe {
 
 		String[] contenidoOriginal = { ITEM_LISTA, ITEM_LISTA_2, COMPONENTE_SECCION };
 		contexto.setContenidoOriginal(contenidoOriginal);
+		contexto.setExpresionActual(ITEM_LISTA);
+		contexto.setPosicionActual(0);
 
-		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA, contexto, 0);
+		ItemLista componenteItemLista = new ItemLista(null, contexto);
 		componenteItemLista.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -82,8 +88,10 @@ public class ComponenteItemListaDebe {
 		String[] contenidoOriginal = { ITEM_LISTA, ITEM_LISTA_2, COMPONENTE_SECCION };
 		contexto.setContenidoOriginal(contenidoOriginal);
 		contexto.listaAbierta(true);
+		contexto.setExpresionActual(ITEM_LISTA_2);
+		contexto.setPosicionActual(1);
 
-		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA_2, contexto, 1);
+		ItemLista componenteItemLista = new ItemLista(null, contexto);
 		componenteItemLista.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -99,8 +107,10 @@ public class ComponenteItemListaDebe {
 		String[] contenidoOriginal = { ITEM_LISTA, ITEM_LISTA_2, ITEM_LISTA_3, COMPONENTE_SECCION };
 		contexto.setContenidoOriginal(contenidoOriginal);
 		contexto.listaAbierta(true);
+		contexto.setExpresionActual(ITEM_LISTA_2);
+		contexto.setPosicionActual(1);
 
-		ItemLista componenteItemLista = new ItemLista(null, ITEM_LISTA_2, contexto, 1);
+		ItemLista componenteItemLista = new ItemLista(null, contexto);
 		componenteItemLista.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -112,7 +122,8 @@ public class ComponenteItemListaDebe {
 	@Test
 	public void verificar_que_se_llama_a_otro_componente_cuando_la_etiqueta_no_corresponde_a_un_item_de_lista() {
 
-		ItemLista componenteItemLista = new ItemLista(componenteSeccion, COMPONENTE_SECCION, contexto, 0);
+		contexto.setExpresionActual(COMPONENTE_SECCION);
+		ItemLista componenteItemLista = new ItemLista(componenteSeccion, contexto);
 		componenteItemLista.parsearMarkdown();
 
 		Mockito.verify(componenteSeccion).parsearMarkdown();

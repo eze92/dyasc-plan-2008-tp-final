@@ -29,8 +29,9 @@ public class ComponenteSeccionDebe {
 
 		String[] contenidoOriginal = { COMPONENTE_SECCION };
 		contexto.setContenidoOriginal(contenidoOriginal);
+		contexto.setExpresionActual(COMPONENTE_SECCION);
 
-		Seccion seccion = new Seccion(componenteH1, COMPONENTE_SECCION, contexto);
+		Seccion seccion = new Seccion(componenteH1, contexto);
 		seccion.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -44,8 +45,9 @@ public class ComponenteSeccionDebe {
 
 		String[] contenidoOriginal = { COMPONENTE_SECCION, COMPONENTE_H1 };
 		contexto.setContenidoOriginal(contenidoOriginal);
+		contexto.setExpresionActual(COMPONENTE_SECCION);
 
-		Seccion seccion = new Seccion(componenteH1, COMPONENTE_SECCION, contexto);
+		Seccion seccion = new Seccion(componenteH1, contexto);
 		seccion.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -60,8 +62,9 @@ public class ComponenteSeccionDebe {
 		String[] contenidoOriginal = { COMPONENTE_H1, COMPONENTE_SECCION, COMPONENTE_H1 };
 		contexto.setContenidoOriginal(contenidoOriginal);
 		contexto.seccionAbierta(true);
+		contexto.setExpresionActual(COMPONENTE_SECCION);
 
-		Seccion seccion = new Seccion(componenteH1, COMPONENTE_SECCION, contexto);
+		Seccion seccion = new Seccion(componenteH1, contexto);
 		seccion.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -75,9 +78,10 @@ public class ComponenteSeccionDebe {
 
 		String[] contenidoOriginal = { COMPONENTE_H1, COMPONENTE_H1 };
 		contexto.setContenidoOriginal(contenidoOriginal);
+		contexto.setExpresionActual(COMPONENTE_H1);
 
-		Seccion componenteSeccion = new Seccion(componenteH1, COMPONENTE_H1, contexto);
-		componenteSeccion.parsearMarkdown();
+		Seccion seccion = new Seccion(componenteH1, contexto);
+		seccion.parsearMarkdown();
 
 		Mockito.verify(componenteH1).parsearMarkdown();
 	}

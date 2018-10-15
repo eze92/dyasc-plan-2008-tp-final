@@ -12,7 +12,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class ComponenteTituloH1Debe {
 
 	private static final String COMPONENTE_H1 = "# Texto h1";
-	private static final String OTRO_COMPONETE_H1 = "# Otro texto h1";
+	private static final String OTRO_COMPONENTE_H1 = "# Otro texto h1";
 	private static final String COMPONENTE_H2 = "## Texto h2";
 
 	@Mock
@@ -29,7 +29,8 @@ public class ComponenteTituloH1Debe {
 	@Test
 	public void agregar_al_nuevo_contenido_la_etiqueta_h1_con_el_texto_correspondiente() {
 
-		componenteH1 = new TituloH1(null, COMPONENTE_H1, contexto);
+		contexto.setExpresionActual(COMPONENTE_H1);
+		componenteH1 = new TituloH1(null, contexto);
 
 		componenteH1.parsearMarkdown();
 		String obtenido = contexto.getNuevoContenido();
@@ -41,7 +42,8 @@ public class ComponenteTituloH1Debe {
 	@Test
 	public void agregar_al_nuevo_contenido_la_etiqueta_h1_para_un_componente_con_diferente_texto() {
 
-		componenteH1 = new TituloH1(null, OTRO_COMPONETE_H1, contexto);
+		contexto.setExpresionActual(OTRO_COMPONENTE_H1);
+		componenteH1 = new TituloH1(null, contexto);
 
 		componenteH1.parsearMarkdown();
 		String obtenido = contexto.getNuevoContenido();
@@ -53,7 +55,9 @@ public class ComponenteTituloH1Debe {
 	@Test
 	public void verificar_que_se_llama_a_otro_componente_cuando_la_etiqueta_no_corresponde_a_h1() {
 
-		componenteH1 = new TituloH1(componenteH2, COMPONENTE_H2, contexto);
+		contexto.setExpresionActual(COMPONENTE_H2);
+		componenteH1 = new TituloH1(componenteH2, contexto);
+
 		componenteH1.parsearMarkdown();
 
 		Mockito.verify(componenteH2).parsearMarkdown();

@@ -4,7 +4,8 @@ public class Contexto {
 
 	private String[] contenidoOriginal;
 	private String nuevoContenido = "";
-
+	private String expresionActual;
+	private int posicionActual = 0;
 	private boolean seccionAbierta = false;
 	private boolean listaAbierta = false;
 
@@ -42,5 +43,21 @@ public class Contexto {
 
 	public boolean soloSeccion() {
 		return contenidoOriginal.length == 1;
+	}
+
+	public String getExpresionActual() {
+		return expresionActual;
+	}
+
+	public void setExpresionActual(String expresionActual) {
+		this.expresionActual = expresionActual;
+	}
+
+	public int getPosicionActual() {
+		return posicionActual;
+	}
+
+	public void setPosicionActual(int posicionActual) {
+		this.posicionActual = posicionActual;
 	}
 }

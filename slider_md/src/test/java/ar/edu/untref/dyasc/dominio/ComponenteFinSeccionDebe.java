@@ -15,9 +15,10 @@ public class ComponenteFinSeccionDebe {
 		String[] contenidoOriginal = { COMPONENTE_FINALIZACION };
 		contexto.setContenidoOriginal(contenidoOriginal);
 		contexto.seccionAbierta(true);
+		contexto.setExpresionActual(COMPONENTE_FINALIZACION);
 
-		FinSeccion seccion = new FinSeccion(null, COMPONENTE_FINALIZACION, contexto);
-		seccion.parsearMarkdown();
+		FinSeccion finSeccion = new FinSeccion(null, contexto);
+		finSeccion.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
 
