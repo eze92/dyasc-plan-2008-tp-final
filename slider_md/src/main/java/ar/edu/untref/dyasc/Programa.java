@@ -3,13 +3,12 @@ package ar.edu.untref.dyasc;
 import ar.edu.untref.dyasc.dominio.Contexto;
 import ar.edu.untref.dyasc.dominio.ServicioPrograma;
 import ar.edu.untref.dyasc.entrada.Entrada;
+import ar.edu.untref.dyasc.entrada.ExepcionArchivoNoEncontrado;
 import ar.edu.untref.dyasc.entrada.LectorArchivos;
-import ar.edu.untref.dyasc.salida.CopiadoDeCarpeta;
-import ar.edu.untref.dyasc.salida.SalidaPantalla;
 
 public class Programa {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExepcionArchivoNoEncontrado {
     
     	Entrada entrada = new Entrada(args);
 
@@ -29,9 +28,6 @@ public class Programa {
 			// Salida
 			if (entrada.esModoSalida()) {
 			
-				CopiadoDeCarpeta copiadoDeCarpeta = new CopiadoDeCarpeta();
-				copiadoDeCarpeta.copiarArchivos(directorioOrigen, directorioDestino);
-				
 				/*
 				 * if(esModoDefault()) {
 				 * 	carpeta = nombreArchivo();
@@ -42,8 +38,8 @@ public class Programa {
 				 */
 				
 			} else {
-				SalidaPantalla pantalla = new SalidaPantalla();
-				pantalla.imprimir(contenidoSalida);
+				
+				// Imprime por pantalla "contenidoSalida"
 			}
 		}
     }

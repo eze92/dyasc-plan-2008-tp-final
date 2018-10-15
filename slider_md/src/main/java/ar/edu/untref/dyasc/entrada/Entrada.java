@@ -6,6 +6,7 @@ public class Entrada {
 
 	private String[] argumentos;
 	private String nombreArchivo;
+	private boolean modoSalida = false;
 
 	public Entrada(String[] argumentos) {
 		this.argumentos = argumentos;
@@ -26,8 +27,10 @@ public class Entrada {
 
 	public String modo() {
 		if (argumentos[0].contains(MODO_SALIDA)) {
+			modoSalida = true;
 			return MODO_SALIDA;
 		}
+		modoSalida = false;
 		return argumentos[0];
 	}
 
@@ -40,5 +43,9 @@ public class Entrada {
 			return nombreArchivo.substring(0, nombreArchivo.length() - 3);
 		}
 		return nombreArchivo;
+	}
+
+	public boolean esModoSalida() {
+		return modoSalida;
 	}
 }
