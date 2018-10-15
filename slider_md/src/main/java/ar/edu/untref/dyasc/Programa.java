@@ -1,16 +1,29 @@
 package ar.edu.untref.dyasc;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import ar.edu.untref.dyasc.dominio.Contexto;
 import ar.edu.untref.dyasc.dominio.ServicioPrograma;
 import ar.edu.untref.dyasc.entrada.Entrada;
 import ar.edu.untref.dyasc.entrada.ExepcionArchivoNoEncontrado;
 import ar.edu.untref.dyasc.entrada.LectorArchivos;
+import ar.edu.untref.dyasc.salida.NoExisteDirectorioException;
+import ar.edu.untref.dyasc.salida.Salida;
+import ar.edu.untref.dyasc.salida.SalidaArchivo;
+import ar.edu.untref.dyasc.salida.SalidaPantalla;
 
 public class Programa {
 
-    public static void main(String[] args) throws ExepcionArchivoNoEncontrado {
-    
-    	Entrada entrada = new Entrada(args);
+	private static final String MODO_SALIDA = "--output";
+	private static final String MODO_DEFAULT = "--mode=default";
+	private static final String MODO_PANTALLA = "--mode=no-output";
+
+	public static void main(String[] args)
+			throws ExepcionArchivoNoEncontrado, IOException, NoExisteDirectorioException {
+
+		Entrada entrada = new Entrada(args);
 
 		if (entrada.nombreValido()) {
 
@@ -26,21 +39,14 @@ public class Programa {
 			String contenidoSalida = servicioPrograma.obtenerSalida();
 
 			// Salida
-			if (entrada.esModoSalida()) {
-			
-				/*
-				 * if(esModoDefault()) {
-				 * 	carpeta = nombreArchivo();
-				 * } else {
-				 * 	carpeta = nombreCarpeta();
-				 * }
-				 *  SalidaArchivo.escribir(carpeta + "/" + nombreArchivo, contenidoSalida);
-				 */
-				
-			} else {
-				
-				// Imprime por pantalla "contenidoSalida"
-			}
+			Map<String, Salida> salidas = new HashMap<>();
+			String nombreArchivo = entrada.nombreArchivo();
+
+			salidas.put(MODO_PANTALLA, new SalidaPantalla());
+			salidas.put(MODO_DEFAULT, new SalidaArchivo(nombreArchivo));
+			salidas.put(MODO_SALIDA, new SalidaArchivo(nombreArchivo));
+
+			salidas.get(entrada.modo()).imprimir(contenidoSalida);
 		}
-    }
+	}
 }
