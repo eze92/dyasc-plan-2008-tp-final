@@ -9,36 +9,37 @@ import java.util.List;
 
 public class GeneradorDeArchivo {
 
-    public void generarArchivoEnDirectorio(String rutaArchivo, String nuevaCadena) throws IOException {
-        SalidaArchivo modificarArchivo = new SalidaArchivo();
+	public void generarArchivoEnDirectorio(String rutaArchivo, String nuevaCadena) throws IOException {
 
-        List<String> lineas = new ArrayList<String>();
-        String unaLinea = null;
-        String directorio = (System.getProperty("user.dir") + "/" + rutaArchivo + "/index.html");
-        File directorioArchivo = new File(directorio);
-        FileReader lectorDeArchivo = new FileReader(directorioArchivo);
-        BufferedReader lectorDeLineasDeArchivo = new BufferedReader(lectorDeArchivo);
+		SalidaArchivo modificarArchivo = new SalidaArchivo();
 
-        while ((unaLinea = lectorDeLineasDeArchivo.readLine()) != null) {
-            if (unaLinea.contains(("[este-es-el-texto-a-reemplazar]"))) {
-                unaLinea = unaLinea.replace("[este-es-el-texto-a-reemplazar]", nuevaCadena);
-            }
-            lineas.add(unaLinea + "\n");
-        }
-        lectorDeArchivo.close();
-        lectorDeLineasDeArchivo.close();
+		List<String> lineas = new ArrayList<String>();
+		String unaLinea = null;
+		String directorio = (System.getProperty("user.dir") + "/" + rutaArchivo + "/index.html");
+		File directorioArchivo = new File(directorio);
+		FileReader lectorDeArchivo = new FileReader(directorioArchivo);
+		BufferedReader lectorDeLineasDeArchivo = new BufferedReader(lectorDeArchivo);
 
-        modificarArchivo.imprimir(directorio, lineas);
-    }
+		while ((unaLinea = lectorDeLineasDeArchivo.readLine()) != null) {
+			if (unaLinea.contains(("[este-es-el-texto-a-reemplazar]"))) {
+				unaLinea = unaLinea.replace("[este-es-el-texto-a-reemplazar]", nuevaCadena);
+			}
+			lineas.add(unaLinea + "\n");
+		}
+		lectorDeArchivo.close();
+		lectorDeLineasDeArchivo.close();
 
-        public boolean existeArchivo(String ruta) {
-                  boolean existeEnLaRutaEspecificada = false;
-                  File archivo = new File(ruta);
-                  if (archivo.exists()) {
-                            existeEnLaRutaEspecificada = true;
-                  } else {
-                            existeEnLaRutaEspecificada = false;
-                  }
-                  return existeEnLaRutaEspecificada;
-        }
+		modificarArchivo.imprimir(directorio, lineas);
+	}
+
+	public boolean existeArchivo(String ruta) {
+		boolean existeEnLaRutaEspecificada = false;
+		File archivo = new File(ruta);
+		if (archivo.exists()) {
+			existeEnLaRutaEspecificada = true;
+		} else {
+			existeEnLaRutaEspecificada = false;
+		}
+		return existeEnLaRutaEspecificada;
+	}
 }

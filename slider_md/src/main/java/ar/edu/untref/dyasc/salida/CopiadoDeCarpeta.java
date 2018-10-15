@@ -9,40 +9,41 @@ import java.io.OutputStream;
 
 public class CopiadoDeCarpeta {
 
-    public void copiarArchivos(File directorioOrigen, File directorioDestino)
-            throws IOException, NoExisteDirectorioException {
-        if (directorioOrigen.exists()) {
-            if (directorioOrigen.isDirectory()) {
+	public void copiarArchivos(File directorioOrigen, File directorioDestino)
+			throws IOException, NoExisteDirectorioException {
 
-                String archivos[] = directorioOrigen.list();
+		if (directorioOrigen.exists()) {
+			if (directorioOrigen.isDirectory()) {
 
-                if (!directorioDestino.exists()) {
-                    directorioDestino.mkdir();
-                }
+				String archivos[] = directorioOrigen.list();
 
-                for (String nombreArchivo : archivos) {
+				if (!directorioDestino.exists()) {
+					directorioDestino.mkdir();
+				}
 
-                    File archivoOrigen = new File(directorioOrigen, nombreArchivo);
-                    File archivoDestino = new File(directorioDestino, nombreArchivo);
+				for (String nombreArchivo : archivos) {
 
-                    copiarArchivos(archivoOrigen, archivoDestino);
-                }
-            } else {
+					File archivoOrigen = new File(directorioOrigen, nombreArchivo);
+					File archivoDestino = new File(directorioDestino, nombreArchivo);
 
-                InputStream archivoEntrada = new FileInputStream(directorioOrigen);
-                OutputStream archivoSalida = new FileOutputStream(directorioDestino);
+					copiarArchivos(archivoOrigen, archivoDestino);
+				}
+			} else {
 
-                byte[] buffer = new byte[1024];
+				InputStream archivoEntrada = new FileInputStream(directorioOrigen);
+				OutputStream archivoSalida = new FileOutputStream(directorioDestino);
 
-                int tamanoArchivo;
+				byte[] buffer = new byte[1024];
 
-                while ((tamanoArchivo = archivoEntrada.read(buffer)) > 0) {
-                    archivoSalida.write(buffer, 0, tamanoArchivo);
-                }
+				int tamanoArchivo;
 
-                archivoEntrada.close();
-                archivoSalida.close();
-            }
-        }
-    }
+				while ((tamanoArchivo = archivoEntrada.read(buffer)) > 0) {
+					archivoSalida.write(buffer, 0, tamanoArchivo);
+				}
+
+				archivoEntrada.close();
+				archivoSalida.close();
+			}
+		}
+	}
 }
