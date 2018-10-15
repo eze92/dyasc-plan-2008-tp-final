@@ -58,11 +58,11 @@ public class ItemLista extends Componente {
 			boolean siguienteEsTipoLista = contexto.getContenidoOriginal()[posicionActual + 1].startsWith("*");
 			if (!siguienteEsTipoLista) {
 				return CIERRE_LISTA;
-			} else {
-				return "";
 			}
 		} else {
 			return CIERRE_LISTA;
 		}
+
+		return "";
 	}
 }
