@@ -2,7 +2,6 @@ package ar.edu.untref.dyasc.dominio;
 
 public class Seccion extends Componente {
 
-	private static final String FIN_SECCION = "</section>";
 	private static final String SECCION_INTERMEDIA = "</section><section>";
 	private static final String INICIO_FIN = "<section></section>";
 	private static final String INICIO_SECCION = "<section>";
@@ -36,20 +35,13 @@ public class Seccion extends Componente {
 			etiqueta = INICIO_FIN;
 		} else {
 
-			boolean seccionAbierta = false;
-
 			if (contexto.haySeccionAbierta()) {
 				etiqueta = SECCION_INTERMEDIA;
-				seccionAbierta = true;
-			} else if (contexto.enFinDeArchivo()) {
-				etiqueta = FIN_SECCION;
-				seccionAbierta = false;
 			} else {
 				etiqueta = INICIO_SECCION;
-				seccionAbierta = true;
 			}
 
-			contexto.seccionAbierta(seccionAbierta);
+			contexto.seccionAbierta(true);
 		}
 		return etiqueta;
 	}
