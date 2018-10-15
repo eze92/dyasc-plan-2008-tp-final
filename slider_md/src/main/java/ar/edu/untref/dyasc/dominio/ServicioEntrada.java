@@ -2,6 +2,7 @@ package ar.edu.untref.dyasc.dominio;
 
 public class ServicioEntrada {
 
+	private static final String EXPRESION_FINAL = "\nFIN";
 	private Contexto contexto;
 
 	public ServicioEntrada(Contexto contexto) {
@@ -9,6 +10,8 @@ public class ServicioEntrada {
 	}
 
 	public void crearContenido(String documento) {
+
+		documento += EXPRESION_FINAL;
 
 		String[] contenidoOriginal = documento.split("\n");
 		contexto.setContenidoOriginal(contenidoOriginal);

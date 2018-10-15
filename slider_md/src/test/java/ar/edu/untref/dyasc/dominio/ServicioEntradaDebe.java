@@ -8,6 +8,7 @@ public class ServicioEntradaDebe {
 
 	private static final String SECCION = "---";
 	private static final String H1 = "# titulo";
+	private static final String FIN = "FIN";
 
 	private static final String ARCHIVO = "---\n# titulo";
 
@@ -37,7 +38,7 @@ public class ServicioEntradaDebe {
 
 		String[] obtenido = contexto.getContenidoOriginal();
 
-		String[] esperado = { SECCION, H1 };
+		String[] esperado = { SECCION, H1, FIN };
 		Assert.assertArrayEquals(esperado, obtenido);
 	}
 
@@ -46,7 +47,7 @@ public class ServicioEntradaDebe {
 
 		String obtenido = servicioEntrada.obtenerSalida(seccion);
 
-		String esperado = "<section>" + "<h1>titulo<h1/>" + "</section>";
+		String esperado = "<section>" + "<h1>titulo</h1>" + "</section>";
 		Assert.assertEquals(esperado, obtenido);
 	}
 }
