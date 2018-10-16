@@ -2,9 +2,9 @@ package ar.edu.untref.dyasc.dominio;
 
 public class Seccion extends Componente {
 
-	private static final String SECCION_INTERMEDIA = "</section><section>";
-	private static final String INICIO_FIN = "<section></section>";
-	private static final String INICIO_SECCION = "<section>";
+	private static final String SECCION_INTERMEDIA = "</section><section>\n";
+	private static final String INICIO_FIN = "<section></section>\n";
+	private static final String INICIO_SECCION = "<section>\n";
 
 	private Componente siguienteComponente;
 

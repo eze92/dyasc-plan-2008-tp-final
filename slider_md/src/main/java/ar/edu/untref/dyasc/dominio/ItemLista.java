@@ -2,8 +2,8 @@ package ar.edu.untref.dyasc.dominio;
 
 public class ItemLista extends Componente {
 
-	private static final String CIERRE_LISTA = "</ul>";
-	private static final String INICIO_LISTA = "<ul>";
+	private static final String CIERRE_LISTA = "</ul>\n";
+	private static final String INICIO_LISTA = "<ul>\n";
 
 	private Componente siguienteComponente;
 
@@ -39,7 +39,7 @@ public class ItemLista extends Componente {
 
 	private String agregarItemLista() {
 		String textoComponente = getContexto().getExpresionActual().substring(2);
-		String itemLista = "<li>" + textoComponente + "</li>";
+		String itemLista = "<li>" + textoComponente + "</li>\n";
 		return itemLista;
 	}
 

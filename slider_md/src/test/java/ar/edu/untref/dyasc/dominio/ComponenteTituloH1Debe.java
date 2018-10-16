@@ -36,7 +36,7 @@ public class ComponenteTituloH1Debe {
 		componenteH1.parsearMarkdown();
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<h1>Texto h1</h1>";
+		String esperado = "<h1>Texto h1</h1>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
@@ -50,7 +50,7 @@ public class ComponenteTituloH1Debe {
 		componenteH1.parsearMarkdown();
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<h1>Otro texto h1</h1>";
+		String esperado = "<h1>Otro texto h1</h1>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 

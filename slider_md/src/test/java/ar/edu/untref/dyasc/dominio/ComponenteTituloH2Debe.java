@@ -37,7 +37,7 @@ public class ComponenteTituloH2Debe {
 
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<h2>Titulo h2</h2>";
+		String esperado = "<h2>Titulo h2</h2>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
@@ -52,7 +52,7 @@ public class ComponenteTituloH2Debe {
 
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<h2>Otro titulo h2</h2>";
+		String esperado = "<h2>Otro titulo h2</h2>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 

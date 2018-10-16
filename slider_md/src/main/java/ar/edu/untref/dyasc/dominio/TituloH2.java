@@ -15,7 +15,7 @@ public class TituloH2 extends Componente {
 
 		if (getContexto().getExpresionActual().startsWith("## ")) {
 			String textoComponente = getContexto().getExpresionActual().substring(3);
-			String nuevoContenido = "<h2>" + textoComponente + "</h2>";
+			String nuevoContenido = "<h2>" + textoComponente + "</h2>\n";
 			getContexto().agregarNuevoContenido(nuevoContenido);
 		} else {
 			this.siguienteComponente.parsearMarkdown();

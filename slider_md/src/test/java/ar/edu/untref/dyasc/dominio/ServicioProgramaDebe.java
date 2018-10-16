@@ -38,7 +38,7 @@ public class ServicioProgramaDebe {
 
 		String obtenido = servicioEntrada.obtenerSalida();
 
-		String esperado = "<section>" + "<h1>titulo</h1>" + "</section>";
+		String esperado = "<section>\n" + "<h1>titulo</h1>\n" + "</section>";
 		Assert.assertEquals(esperado, obtenido);
 	}
 }

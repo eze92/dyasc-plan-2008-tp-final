@@ -37,7 +37,7 @@ public class ComponenteSeccionDebe {
 
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<section></section>";
+		String esperado = "<section></section>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
@@ -54,7 +54,7 @@ public class ComponenteSeccionDebe {
 
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<section>";
+		String esperado = "<section>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
@@ -72,7 +72,7 @@ public class ComponenteSeccionDebe {
 
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "</section><section>";
+		String esperado = "</section><section>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 

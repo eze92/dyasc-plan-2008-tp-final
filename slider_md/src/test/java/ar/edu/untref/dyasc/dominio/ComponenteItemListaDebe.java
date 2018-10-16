@@ -40,9 +40,9 @@ public class ComponenteItemListaDebe {
 
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<ul>" + 
-							"<li>Item 1</li>" + 
-						  "</ul>";
+		String esperado = "<ul>\n" + 
+							"<li>Item 1</li>\n" + 
+						  "</ul>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
@@ -60,9 +60,9 @@ public class ComponenteItemListaDebe {
 
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<ul>" + 
-							"<li>Item 2</li>" + 
-						  "</ul>";
+		String esperado = "<ul>\n" + 
+							"<li>Item 2</li>\n" + 
+						  "</ul>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
@@ -80,8 +80,8 @@ public class ComponenteItemListaDebe {
 
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<ul>" + 
-							"<li>Item 1</li>";
+		String esperado = "<ul>\n" + 
+							"<li>Item 1</li>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
@@ -100,8 +100,8 @@ public class ComponenteItemListaDebe {
 
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<li>Item 2</li>" + 
-						"</ul>";
+		String esperado = "<li>Item 2</li>\n" + 
+						"</ul>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
@@ -120,7 +120,7 @@ public class ComponenteItemListaDebe {
 
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<li>Item 2</li>";
+		String esperado = "<li>Item 2</li>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 

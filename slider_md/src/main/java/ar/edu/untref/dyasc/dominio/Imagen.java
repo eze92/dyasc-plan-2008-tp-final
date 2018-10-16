@@ -15,7 +15,7 @@ public class Imagen extends Componente {
 
 		if (getContexto().getExpresionActual().startsWith("i:")) {
 			String textoComponente = getContexto().getExpresionActual().substring(2);
-			String nuevoContenido = "<img src=\"" + textoComponente + "\"/>";
+			String nuevoContenido = "<img src=\"" + textoComponente + "\"/>\n";
 			getContexto().agregarNuevoContenido(nuevoContenido);
 		} else {
 			this.siguienteComponente.parsearMarkdown();

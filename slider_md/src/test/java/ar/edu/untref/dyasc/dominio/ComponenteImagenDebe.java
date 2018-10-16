@@ -36,7 +36,7 @@ public class ComponenteImagenDebe {
 
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<img src=\"imagen.png\"/>";
+		String esperado = "<img src=\"imagen.png\"/>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
@@ -50,7 +50,7 @@ public class ComponenteImagenDebe {
 
 		String obtenido = contexto.getNuevoContenido();
 
-		String esperado = "<img src=\"otra_imagen.png\"/>";
+		String esperado = "<img src=\"otra_imagen.png\"/>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
