@@ -44,8 +44,8 @@ public class Programa {
 			Map<String, Salida> salidas = new HashMap<>();
 
 			salidas.put(MODO_PANTALLA, new SalidaPantalla());
-			salidas.put(MODO_DEFAULT, new SalidaArchivo(entrada.nombreCarpeta()));
-			salidas.put(MODO_SALIDA, new SalidaArchivo(entrada.nombreCarpeta()));
+			salidas.put(MODO_DEFAULT, new SalidaArchivo(entrada.nombreCarpeta(), entrada.nombreArchivo()));
+			salidas.put(MODO_SALIDA, new SalidaArchivo(entrada.nombreCarpeta(), entrada.nombreArchivo()));
 
 			salidas.get(entrada.modo()).imprimir(contenidoSalida);
 		}

@@ -29,8 +29,6 @@ public class Entrada {
 
 	public String modo() {
 
-		nombreArchivo = nombreCarpeta() + "/" + nombreArchivo;
-
 		if (argumentos[0].contains(MODO_SALIDA)) {
 			return MODO_SALIDA;
 		} else if (argumentos[0].contains(MODO_DEFAULT)) {

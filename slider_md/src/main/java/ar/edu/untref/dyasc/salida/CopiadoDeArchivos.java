@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class CopiadoDeCarpeta {
+public class CopiadoDeArchivos {
 
-	public void copiarArchivos(File directorioOrigen, File directorioDestino)
+	public void copiarCarpeta(File directorioOrigen, File directorioDestino)
 			throws IOException, NoExisteDirectorioException {
 
 		if (directorioOrigen.exists()) {
@@ -26,7 +26,7 @@ public class CopiadoDeCarpeta {
 					File archivoOrigen = new File(directorioOrigen, nombreArchivo);
 					File archivoDestino = new File(directorioDestino, nombreArchivo);
 
-					copiarArchivos(archivoOrigen, archivoDestino);
+					copiarCarpeta(archivoOrigen, archivoDestino);
 				}
 			} else {
 
