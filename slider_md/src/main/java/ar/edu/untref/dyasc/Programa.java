@@ -8,6 +8,7 @@ import ar.edu.untref.dyasc.dominio.Contexto;
 import ar.edu.untref.dyasc.dominio.ServicioPrograma;
 import ar.edu.untref.dyasc.entrada.Entrada;
 import ar.edu.untref.dyasc.entrada.ExepcionArchivoNoEncontrado;
+import ar.edu.untref.dyasc.entrada.ExepcionNombreInvalido;
 import ar.edu.untref.dyasc.entrada.LectorArchivos;
 import ar.edu.untref.dyasc.salida.NoExisteDirectorioException;
 import ar.edu.untref.dyasc.salida.Salida;
@@ -23,7 +24,7 @@ public class Programa {
 	private static final String UBICACION_ARCHIVOS = "../archivosDePrueba/";
 
 	public static void main(String[] args)
-			throws ExepcionArchivoNoEncontrado, IOException, NoExisteDirectorioException {
+			throws ExepcionArchivoNoEncontrado, IOException, NoExisteDirectorioException, ExepcionNombreInvalido {
 
 		Entrada entrada = new Entrada(args);
 		entrada.modo();
@@ -49,6 +50,8 @@ public class Programa {
 			salidas.put(MODO_SALIDA, new SalidaArchivo(entrada.nombreCarpeta(), entrada.nombreArchivo()));
 
 			salidas.get(entrada.modo()).imprimir(contenidoSalida);
+		} else {
+			throw new ExepcionNombreInvalido();
 		}
 	}
 }
