@@ -11,8 +11,8 @@ import ar.edu.untref.dyasc.entrada.LectorArchivos;
 public class SalidaArchivo extends Salida {
 
 	private static final String TEXTO_A_REEMPLAZAR = "[este-es-el-texto-a-reemplazar]";
-	private static final String RUTA_PLANTILLA = "./plantilla/";
-	private static final String RUTA_INDEX = "./plantilla/index.html";
+	private static final String RUTA_PLANTILLA = "../archivosDePrueba/plantilla/";
+	private static final String RUTA_INDEX = "../archivosDePrueba/plantilla/index.html";
 	private static final String UBICACION_ARCHIVO_MD = "../archivosDePrueba/";
 
 	private String nombreCarpeta;
