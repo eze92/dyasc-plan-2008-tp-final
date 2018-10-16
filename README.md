@@ -19,6 +19,10 @@ Se decidió utilizar una estructura modularizada para la resolución del problem
 >
 >Se añadió una expresión extra que denota la finalización del archivo, de esta manera cuando la *Cadena de reponsabilidades* encuentra la expresión **FIN** (expresión creada por nosotros), reconocerá que el archivo no contiene más expresiones por tratar.
 
+>Nota:
+>------
+>Se copió la plantilla dentro de la carpeta **archivosDePrueba**, pero las copias generadas a partir de la ejecución del programa se ubican dentro de la carpeta **/target/** del proyecto.
+
 ## Integrantes
 
 Beltrame Martín  
