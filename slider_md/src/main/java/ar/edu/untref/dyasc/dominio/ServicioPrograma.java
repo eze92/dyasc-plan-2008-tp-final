@@ -30,6 +30,7 @@ public class ServicioPrograma {
 		String[] contenidoOriginal = contexto.getContenidoOriginal();
 
 		for (int i = 0; i < contenidoOriginal.length; i++) {
+			contexto.setPosicionActual(i);
 			contexto.setExpresionActual(contenidoOriginal[i]);
 			seccion.parsearMarkdown();
 		}
