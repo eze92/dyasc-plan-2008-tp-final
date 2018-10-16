@@ -16,37 +16,37 @@ import ar.edu.untref.dyasc.salida.SalidaPantalla;
 
 public class Programa {
 
-	private static final String MODO_SALIDA = "--output";
-	private static final String MODO_DEFAULT = "--mode=default";
-	private static final String MODO_PANTALLA = "--mode=no-output";
+    private static final String MODO_SALIDA = "--output";
+    private static final String MODO_DEFAULT = "--mode=default";
+    private static final String MODO_PANTALLA = "--mode=no-output";
 
-	public static void main(String[] args)
-			throws ExepcionArchivoNoEncontrado, IOException, NoExisteDirectorioException {
+    public static void main(String[] args)
+            throws ExepcionArchivoNoEncontrado, IOException, NoExisteDirectorioException {
 
-		Entrada entrada = new Entrada(args);
+        Entrada entrada = new Entrada(args);
 
-		if (entrada.nombreValido()) {
+        if (entrada.nombreValido()) {
 
-			// Lectura
-			LectorArchivos lectorArchivos = new LectorArchivos();
-			String documento = lectorArchivos.leer(entrada.nombreArchivo());
+            // Lectura
+            LectorArchivos lectorArchivos = new LectorArchivos();
+            String documento = lectorArchivos.leer(entrada.nombreArchivo());
 
-			// Parseo
-			Contexto contexto = new Contexto();
-			ServicioPrograma servicioPrograma = new ServicioPrograma(contexto);
-			servicioPrograma.crearContenido(documento);
+            // Parseo
+            Contexto contexto = new Contexto();
+            ServicioPrograma servicioPrograma = new ServicioPrograma(contexto);
+            servicioPrograma.crearContenido(documento);
 
-			String contenidoSalida = servicioPrograma.obtenerSalida();
+            String contenidoSalida = servicioPrograma.obtenerSalida();
 
-			// Salida
-			Map<String, Salida> salidas = new HashMap<>();
-			String nombreArchivo = entrada.nombreArchivo();
+            // Salida
+            Map<String, Salida> salidas = new HashMap<>();
+            String nombreArchivo = entrada.nombreArchivo();
 
-			salidas.put(MODO_PANTALLA, new SalidaPantalla());
-			salidas.put(MODO_DEFAULT, new SalidaArchivo(nombreArchivo));
-			salidas.put(MODO_SALIDA, new SalidaArchivo(nombreArchivo));
+            salidas.put(MODO_PANTALLA, new SalidaPantalla());
+            salidas.put(MODO_DEFAULT, new SalidaArchivo(nombreArchivo));
+            salidas.put(MODO_SALIDA, new SalidaArchivo(nombreArchivo));
 
-			salidas.get(entrada.modo()).imprimir(contenidoSalida);
-		}
-	}
+            salidas.get(entrada.modo()).imprimir(contenidoSalida);
+        }
+    }
 }
