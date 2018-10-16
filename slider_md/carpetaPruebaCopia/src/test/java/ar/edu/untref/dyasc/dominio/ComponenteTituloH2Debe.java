@@ -30,7 +30,8 @@ public class ComponenteTituloH2Debe {
 	public void agregar_al_nuevo_contenido_la_etiqueta_h2_con_el_texto_correspondiente() {
 
 		contexto.setExpresionActual(COMPONENTE_H2);
-		componenteH2 = new TituloH2(null, contexto);
+		componenteH2 = new TituloH2(null);
+		componenteH2.setContexto(contexto);
 
 		componenteH2.parsearMarkdown();
 
@@ -44,7 +45,8 @@ public class ComponenteTituloH2Debe {
 	public void agregar_al_nuevo_contenido_la_etiqueta_h2_para_un_componente_con_diferente_texto() {
 
 		contexto.setExpresionActual(OTRO_COMPONENTE_H2);
-		componenteH2 = new TituloH2(null, contexto);
+		componenteH2 = new TituloH2(null);
+		componenteH2.setContexto(contexto);
 
 		componenteH2.parsearMarkdown();
 
@@ -58,7 +60,8 @@ public class ComponenteTituloH2Debe {
 	public void verificar_que_se_llama_a_otro_componente_cuando_la_etiqueta_no_corresponde_a_h2() {
 
 		contexto.setExpresionActual(COMPONENTE_IMAGEN);
-		componenteH2 = new TituloH2(componenteImagen, contexto);
+		componenteH2 = new TituloH2(componenteImagen);
+		componenteH2.setContexto(contexto);
 
 		componenteH2.parsearMarkdown();
 

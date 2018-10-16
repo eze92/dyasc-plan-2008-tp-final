@@ -6,52 +6,51 @@ public class ItemLista extends Componente {
 	private static final String INICIO_LISTA = "<ul>";
 
 	private Componente siguienteComponente;
-	private Contexto contexto;
 
-	public ItemLista(Componente siguienteComponente, Contexto contexto) {
-		super(siguienteComponente, contexto);
-
+	public ItemLista(Componente siguienteComponente) {
+		super(siguienteComponente);
 		this.siguienteComponente = siguienteComponente;
-		this.contexto = contexto;
 	}
 
 	@Override
 	void parsearMarkdown() {
 
-		if (contexto.getExpresionActual().startsWith("*")) {
+		if (getContexto().getExpresionActual().startsWith("*")) {
 
 			String nuevoContenido = "";
 
-			if (!contexto.hayListaAbierta()) {
+			if (!getContexto().hayListaAbierta()) {
 				nuevoContenido = INICIO_LISTA;
-				contexto.listaAbierta(true);
+				getContexto().listaAbierta(true);
 			}
 
 			nuevoContenido += agregarItemLista();
 
-			if (contexto.hayListaAbierta()) {
+			if (getContexto().hayListaAbierta()) {
 				nuevoContenido += agregarFinLista();
-				contexto.listaAbierta(false);
+				getContexto().listaAbierta(false);
 			}
 
-			contexto.agregarNuevoContenido(nuevoContenido);
+			getContexto().agregarNuevoContenido(nuevoContenido);
 		} else {
 			this.siguienteComponente.parsearMarkdown();
 		}
 	}
 
 	private String agregarItemLista() {
-		String textoComponente = contexto.getExpresionActual().substring(2);
+		String textoComponente = getContexto().getExpresionActual().substring(2);
 		String itemLista = "<li>" + textoComponente + "</li>";
 		return itemLista;
 	}
 
 	private String agregarFinLista() {
 
-		boolean dentroDelRangoSuperior = contexto.getPosicionActual() + 1 <= contexto.getContenidoOriginal().length;
+		boolean dentroDelRangoSuperior = getContexto().getPosicionActual()
+				+ 1 <= getContexto().getContenidoOriginal().length;
 		if (dentroDelRangoSuperior) {
 
-			boolean siguienteEsTipoLista = contexto.getContenidoOriginal()[contexto.getPosicionActual() + 1].startsWith("*");
+			boolean siguienteEsTipoLista = getContexto().getContenidoOriginal()[getContexto().getPosicionActual() + 1]
+					.startsWith("*");
 			if (!siguienteEsTipoLista) {
 				return CIERRE_LISTA;
 			}

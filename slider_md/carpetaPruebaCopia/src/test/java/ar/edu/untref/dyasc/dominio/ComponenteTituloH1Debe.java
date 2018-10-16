@@ -30,7 +30,8 @@ public class ComponenteTituloH1Debe {
 	public void agregar_al_nuevo_contenido_la_etiqueta_h1_con_el_texto_correspondiente() {
 
 		contexto.setExpresionActual(COMPONENTE_H1);
-		componenteH1 = new TituloH1(null, contexto);
+		componenteH1 = new TituloH1(null);
+		componenteH1.setContexto(contexto);
 
 		componenteH1.parsearMarkdown();
 		String obtenido = contexto.getNuevoContenido();
@@ -43,7 +44,8 @@ public class ComponenteTituloH1Debe {
 	public void agregar_al_nuevo_contenido_la_etiqueta_h1_para_un_componente_con_diferente_texto() {
 
 		contexto.setExpresionActual(OTRO_COMPONENTE_H1);
-		componenteH1 = new TituloH1(null, contexto);
+		componenteH1 = new TituloH1(null);
+		componenteH1.setContexto(contexto);
 
 		componenteH1.parsearMarkdown();
 		String obtenido = contexto.getNuevoContenido();
@@ -56,7 +58,8 @@ public class ComponenteTituloH1Debe {
 	public void verificar_que_se_llama_a_otro_componente_cuando_la_etiqueta_no_corresponde_a_h1() {
 
 		contexto.setExpresionActual(COMPONENTE_H2);
-		componenteH1 = new TituloH1(componenteH2, contexto);
+		componenteH1 = new TituloH1(componenteH2);
+		componenteH1.setContexto(contexto);
 
 		componenteH1.parsearMarkdown();
 

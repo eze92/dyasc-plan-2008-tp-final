@@ -3,8 +3,6 @@ package ar.edu.untref.dyasc.entrada;
 import org.junit.Assert;
 import org.junit.Test;
 
-
-
 public class ParametrosEntradaDebe {
 
 	private static final String MODO_DEFAULT = "--mode=default";

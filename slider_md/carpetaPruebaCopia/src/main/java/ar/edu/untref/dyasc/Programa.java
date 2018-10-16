@@ -1,18 +1,27 @@
 package ar.edu.untref.dyasc;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import ar.edu.untref.dyasc.dominio.Contexto;
 import ar.edu.untref.dyasc.dominio.ServicioPrograma;
 import ar.edu.untref.dyasc.entrada.Entrada;
 import ar.edu.untref.dyasc.entrada.ExepcionArchivoNoEncontrado;
 import ar.edu.untref.dyasc.entrada.LectorArchivos;
+import ar.edu.untref.dyasc.salida.NoExisteDirectorioException;
+import ar.edu.untref.dyasc.salida.Salida;
+import ar.edu.untref.dyasc.salida.SalidaArchivo;
+import ar.edu.untref.dyasc.salida.SalidaPantalla;
 
 public class Programa {
 
+	private static final String MODO_SALIDA = "--output";
 	private static final String MODO_DEFAULT = "--mode=default";
-	private static final String MODO_SIN_SALIDA = "--mode=no-output";
-	private static final String MODO_SALIDA = "--output=nombre_de_archivo";
+	private static final String MODO_PANTALLA = "--mode=no-output";
 
-	public static void main(String[] args) throws ExepcionArchivoNoEncontrado {
+	public static void main(String[] args)
+			throws ExepcionArchivoNoEncontrado, IOException, NoExisteDirectorioException {
 
 		Entrada entrada = new Entrada(args);
 
@@ -30,11 +39,14 @@ public class Programa {
 			String contenidoSalida = servicioPrograma.obtenerSalida();
 
 			// Salida
-			if (entrada.esModoSalida()) {
+			Map<String, Salida> salidas = new HashMap<>();
+			String nombreArchivo = entrada.nombreArchivo();
 
-			} else {
-				
-			}
+			salidas.put(MODO_PANTALLA, new SalidaPantalla());
+			salidas.put(MODO_DEFAULT, new SalidaArchivo(nombreArchivo));
+			salidas.put(MODO_SALIDA, new SalidaArchivo(nombreArchivo));
+
+			salidas.get(entrada.modo()).imprimir(contenidoSalida);
 		}
 	}
 }

@@ -3,6 +3,8 @@ package ar.edu.untref.dyasc.entrada;
 public class Entrada {
 
 	private static final String MODO_SALIDA = "--output";
+	private static final String MODO_DEFAULT = "--mode=default";
+	private static final String MODO_PANTALLA = "--mode=no-output";
 
 	private String[] argumentos;
 	private String nombreArchivo;
@@ -26,12 +28,18 @@ public class Entrada {
 	}
 
 	public String modo() {
+
+		nombreArchivo = nombreCarpeta() + "/" + nombreArchivo;
+
 		if (argumentos[0].contains(MODO_SALIDA)) {
-			modoSalida = true;
 			return MODO_SALIDA;
+		} else if (argumentos[0].contains(MODO_DEFAULT)) {
+			return MODO_DEFAULT;
+		} else if (argumentos[0].contains(MODO_PANTALLA)) {
+			return MODO_PANTALLA;
 		}
-		modoSalida = false;
-		return argumentos[0];
+
+		return MODO_DEFAULT;
 	}
 
 	public String nombreCarpeta() {

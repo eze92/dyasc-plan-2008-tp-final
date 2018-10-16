@@ -34,7 +34,8 @@ public class ComponenteItemListaDebe {
 		contexto.setExpresionActual(ITEM_LISTA);
 		contexto.setPosicionActual(0);
 
-		ItemLista componenteItemLista = new ItemLista(null, contexto);
+		ItemLista componenteItemLista = new ItemLista(null);
+		componenteItemLista.setContexto(contexto);
 		componenteItemLista.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -53,7 +54,8 @@ public class ComponenteItemListaDebe {
 		contexto.setExpresionActual(ITEM_LISTA_2);
 		contexto.setPosicionActual(0);
 
-		ItemLista componenteItemLista = new ItemLista(null, contexto);
+		ItemLista componenteItemLista = new ItemLista(null);
+		componenteItemLista.setContexto(contexto);
 		componenteItemLista.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -72,7 +74,8 @@ public class ComponenteItemListaDebe {
 		contexto.setExpresionActual(ITEM_LISTA);
 		contexto.setPosicionActual(0);
 
-		ItemLista componenteItemLista = new ItemLista(null, contexto);
+		ItemLista componenteItemLista = new ItemLista(null);
+		componenteItemLista.setContexto(contexto);
 		componenteItemLista.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -91,7 +94,8 @@ public class ComponenteItemListaDebe {
 		contexto.setExpresionActual(ITEM_LISTA_2);
 		contexto.setPosicionActual(1);
 
-		ItemLista componenteItemLista = new ItemLista(null, contexto);
+		ItemLista componenteItemLista = new ItemLista(null);
+		componenteItemLista.setContexto(contexto);
 		componenteItemLista.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -110,7 +114,8 @@ public class ComponenteItemListaDebe {
 		contexto.setExpresionActual(ITEM_LISTA_2);
 		contexto.setPosicionActual(1);
 
-		ItemLista componenteItemLista = new ItemLista(null, contexto);
+		ItemLista componenteItemLista = new ItemLista(null);
+		componenteItemLista.setContexto(contexto);
 		componenteItemLista.parsearMarkdown();
 
 		String obtenido = contexto.getNuevoContenido();
@@ -123,7 +128,8 @@ public class ComponenteItemListaDebe {
 	public void verificar_que_se_llama_a_otro_componente_cuando_la_etiqueta_no_corresponde_a_un_item_de_lista() {
 
 		contexto.setExpresionActual(COMPONENTE_SECCION);
-		ItemLista componenteItemLista = new ItemLista(componenteSeccion, contexto);
+		ItemLista componenteItemLista = new ItemLista(componenteSeccion);
+		componenteItemLista.setContexto(contexto);
 		componenteItemLista.parsearMarkdown();
 
 		Mockito.verify(componenteSeccion).parsearMarkdown();
