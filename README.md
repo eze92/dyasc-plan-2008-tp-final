@@ -7,7 +7,7 @@ Trabajo Practico de la materia  Diseño y Arquitectura de Sistemas de Computacio
 Se decidió utilizar una estructura modularizada para la resolución del problema en todo el proyecto. Ésta se divide en 4 grupos bien definidos:
 
  + Programa: contiene el main de todo el proyecto.
- + Entrada: se encarga de separar e identifacar cada argumento recibido por consola. También notifica sobre posibles errores en la lectura de tales parámetros.
+ + Entrada: se encarga de separar e identificar cada argumento recibido por consola. También notifica sobre posibles errores en la lectura de tales parámetros.
  + Salida: se encarga de generar la salida correspondiente. La salida puede ser:  
     * Por pantalla: con el comando **--mode=no-output [nombre_del_archivo].md**
     * Mediante un archivo: con el comando **--mode=default** ó **--output=[nombre_de_carpeta]** más **[nombre_del_archivo].md**
