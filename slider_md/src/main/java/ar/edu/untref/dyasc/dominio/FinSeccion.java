@@ -8,7 +8,7 @@ public class FinSeccion extends Componente {
 
 	@Override
 	void parsearMarkdown() {
-		if (getContexto().getExpresionActual().equals("FIN")) {
+		if (getContexto().getExpresionActual().equals("FIN") && getContexto().haySeccionAbierta()) {
 			getContexto().agregarNuevoContenido("</section>");
 		}
 	}
