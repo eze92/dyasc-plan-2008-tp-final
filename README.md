@@ -17,15 +17,11 @@ Se decidió utilizar una estructura modularizada para la resolución del problem
 
 Para identificar cada una de las expresiones del MarkDown se utilizó el patrón *Cadena de responsabilidades*, donde cada expresión se transforma en un objeto de la cadena. Ejemplo: la expresión **---** se corresponde con la clase **Seccion**.
 
-Se añadió una expresión extra que denota la finalización del archivo, de esta manera cuando la *Cadena de reponsabilidades* encuentra la expresión **FIN** (expresión creada por nosotros), reconocerá que el archivo no contiene más expresiones por tratar.
-
------
+>Se añadió una expresión extra que denota la finalización del archivo, de esta manera cuando la *Cadena de reponsabilidades* encuentra la expresión **FIN** (expresión creada por nosotros), reconocerá que el archivo no contiene más expresiones por tratar.
 
 ## Integrantes
 
 Beltrame Martín  
 Ledesma Ezequiel
 
-
------
 [![Build Status](https://travis-ci.org/eze92/dyasc-plan-2008-tp-final.svg?branch=master)](https://travis-ci.org/eze92/dyasc-plan-2008-tp-final)
