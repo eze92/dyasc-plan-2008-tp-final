@@ -1,10 +1,8 @@
 package ar.edu.untref.dyasc.salida;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class SalidaArchivo extends Salida {
@@ -22,7 +20,7 @@ public class SalidaArchivo extends Salida {
 		String contenidoFinal = "";
 		String directorio = (System.getProperty("user.dir") + "/" + rutaArchivo + "/index.html");
 
-		// Copia toda la carpeta plantilla 
+		// Copia toda la carpeta plantilla
 		copiadoDeCarpeta.copiarArchivos(new File("./target/plantilla"), new File(rutaArchivo));
 
 		File directorioArchivo = new File(directorio);
@@ -36,6 +34,5 @@ public class SalidaArchivo extends Salida {
 		}
 		lectorDeArchivo.close();
 		lectorDeLineasDeArchivo.close();
-		
 	}
 }
