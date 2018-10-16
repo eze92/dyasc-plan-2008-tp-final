@@ -27,10 +27,14 @@ public class Entrada {
 		return nombreArchivo;
 	}
 
-	public String modo() {
+	public String modo() throws ExepcionArchivoNoEncontrado {
 
 		if (argumentos[0].contains(MODO_SALIDA)) {
-			return MODO_SALIDA;
+			if (argumentos.length > 1) {
+				return MODO_SALIDA;
+			} else {
+				throw new ExepcionArchivoNoEncontrado();
+			}
 		} else if (argumentos[0].contains(MODO_DEFAULT)) {
 			return MODO_DEFAULT;
 		} else if (argumentos[0].contains(MODO_PANTALLA)) {

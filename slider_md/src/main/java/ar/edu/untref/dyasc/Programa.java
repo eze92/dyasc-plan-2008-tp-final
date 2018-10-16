@@ -26,6 +26,7 @@ public class Programa {
 			throws ExepcionArchivoNoEncontrado, IOException, NoExisteDirectorioException {
 
 		Entrada entrada = new Entrada(args);
+		entrada.modo();
 
 		if (entrada.nombreValido()) {
 

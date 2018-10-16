@@ -13,6 +13,7 @@ public class ParametrosEntradaDebe {
 	private static final String[] EJEMPLO_PREDETERMINADO_SIN_EXTENSION = { MODO_DEFAULT, "ejemplo_valido" };
 	private static final String[] EJEMPLO_CON_SALIDA = { MODO_SALIDA, "ejemplo_valido.md" };
 	private static final String[] EJEMPLO_SIN_SALIDA = { MODO_SIN_SALIDA, "ejemplo_valido.md" };
+	private static final String[] EJEMPLO_CON_SALIDA_SIN_ARCHIVO = { MODO_SALIDA };
 
 	@Test
 	public void obtener_el_nombre_del_archivo_cuando_los_parametros_son_validos() {
@@ -26,7 +27,7 @@ public class ParametrosEntradaDebe {
 	}
 
 	@Test
-	public void obtener_el_modo_predeterminado_cuando_el_parametro_es_default() {
+	public void obtener_el_modo_predeterminado_cuando_el_parametro_es_default() throws ExepcionArchivoNoEncontrado {
 
 		Entrada entrada = new Entrada(EJEMPLO_PREDETERMINADO);
 
@@ -37,7 +38,7 @@ public class ParametrosEntradaDebe {
 	}
 
 	@Test
-	public void obtener_el_modo_salida_cuando_el_parametro_es_output() {
+	public void obtener_el_modo_salida_cuando_el_parametro_es_output() throws ExepcionArchivoNoEncontrado {
 
 		Entrada entrada = new Entrada(EJEMPLO_CON_SALIDA);
 
@@ -48,7 +49,7 @@ public class ParametrosEntradaDebe {
 	}
 
 	@Test
-	public void obtener_el_modo_pantalla_cuando_el_parametro_es_no_output() {
+	public void obtener_el_modo_pantalla_cuando_el_parametro_es_no_output() throws ExepcionArchivoNoEncontrado {
 
 		Entrada entrada = new Entrada(EJEMPLO_SIN_SALIDA);
 
@@ -89,5 +90,14 @@ public class ParametrosEntradaDebe {
 
 		String esperado = "nombre_de_archivo";
 		Assert.assertEquals(esperado, obtenido);
+	}
+
+	@Test(expected = ExepcionArchivoNoEncontrado.class)
+	public void devolver_un_mensaje_de_error_cuando_el_parametro_es_output_y_no_contiene_referencia_a_un_archivo_markdown()
+			throws ExepcionArchivoNoEncontrado {
+
+		Entrada entrada = new Entrada(EJEMPLO_CON_SALIDA_SIN_ARCHIVO);
+
+		entrada.modo();
 	}
 }
