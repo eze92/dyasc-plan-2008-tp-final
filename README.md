@@ -4,7 +4,7 @@ Trabajo Practico de la materia  Diseño y Arquitectura de Sistemas de Computacio
 
 ## Integrantes
 
-Beltrame Martín 
+Beltrame Martín  
 Ledesma Ezequiel
 
 ---
