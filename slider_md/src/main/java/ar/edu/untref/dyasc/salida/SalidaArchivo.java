@@ -1,38 +1,34 @@
 package ar.edu.untref.dyasc.salida;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import ar.edu.untref.dyasc.entrada.LectorArchivos;
 
 public class SalidaArchivo extends Salida {
 
-	private String rutaArchivo;
+	private static final String TEXTO_A_REEMPLAZAR = "[este-es-el-texto-a-reemplazar]";
+	private static final String RUTA_PLANTILLA = "./plantilla/";
+	private static final String RUTA_INDEX = "./plantilla/index.html";
+
+	private String nombreCarpeta;
 	private CopiadoDeCarpeta copiadoDeCarpeta = new CopiadoDeCarpeta();
+	private LectorArchivos lectorArchivos = new LectorArchivos();
 
 	public SalidaArchivo(String archivo) {
-		this.rutaArchivo = archivo;
+		this.nombreCarpeta = archivo;
 	}
 
 	@Override
 	public void imprimir(String contenidoSalida) throws IOException, NoExisteDirectorioException {
 
-		String contenidoFinal = "";
-		String directorio = (System.getProperty("user.dir") + "/" + rutaArchivo + "/index.html");
+		copiadoDeCarpeta.copiarArchivos(new File(RUTA_PLANTILLA), new File("./" + nombreCarpeta));
 
-		// Copia toda la carpeta plantilla
-		copiadoDeCarpeta.copiarArchivos(new File("./target/plantilla"), new File(rutaArchivo));
+		String contenidoOriginal = lectorArchivos.transformarContenidoAString(RUTA_INDEX);
+		String contenidoFinal = contenidoOriginal.replace(TEXTO_A_REEMPLAZAR, contenidoSalida);
 
-		File directorioArchivo = new File(directorio);
-		FileReader lectorDeArchivo = new FileReader(directorioArchivo);
-		BufferedReader lectorDeLineasDeArchivo = new BufferedReader(lectorDeArchivo);
-
-		while ((contenidoFinal = lectorDeLineasDeArchivo.readLine()) != null) {
-			if (contenidoFinal.contains(("[este-es-el-texto-a-reemplazar]"))) {
-				contenidoFinal = contenidoFinal.replace("[este-es-el-texto-a-reemplazar]", contenidoSalida);
-			}
-		}
-		lectorDeArchivo.close();
-		lectorDeLineasDeArchivo.close();
+		Files.write(Paths.get("./" + nombreCarpeta + "/index.html"), contenidoFinal.getBytes());
 	}
 }

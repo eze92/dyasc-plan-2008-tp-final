@@ -8,21 +8,19 @@ import java.util.stream.Stream;
 
 public class LectorArchivos {
 
-	private static final String RUTA_UBICACION_ARCHIVOS = "../archivosDePrueba/";
+	public String leer(String ubicacion, String nombreArchivo) throws ExepcionArchivoNoEncontrado {
 
-	public String leer(String nombreArchivo) throws ExepcionArchivoNoEncontrado {
-
-		String rutaArchivo = RUTA_UBICACION_ARCHIVOS + nombreArchivo;
+		String rutaArchivo = ubicacion + nombreArchivo;
 		File file = new File(rutaArchivo);
 
 		if (file.exists() && !file.isDirectory()) {
-			return lecturaArchivo(nombreArchivo, rutaArchivo);
+			return lecturaArchivo(rutaArchivo);
 		} else {
 			throw new ExepcionArchivoNoEncontrado();
 		}
 	}
 
-	private String lecturaArchivo(String nombreArchivo, String rutaArchivo) {
+	private String lecturaArchivo(String rutaArchivo) {
 
 		StringBuilder contenido = new StringBuilder();
 
@@ -34,6 +32,18 @@ public class LectorArchivos {
 
 		if (contenido.length() > 0) {
 			contenido.delete(contenido.length() - 1, contenido.length());
+		}
+		return contenido.toString();
+	}
+
+	public String transformarContenidoAString(String rutaArchivo) {
+
+		StringBuilder contenido = new StringBuilder();
+
+		try (Stream<String> lineas = Files.lines(Paths.get(rutaArchivo))) {
+			lineas.forEach(linea -> contenido.append(linea));
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		return contenido.toString();
 	}

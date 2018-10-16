@@ -13,7 +13,7 @@ public class CopiadoDeCarpetaTest {
     @Test
     public void seCopiaCarpetaDelDirectorioCorrectamente() throws IOException, NoExisteDirectorioException {
         String rutaOrigen = System.getProperty("user.dir");
-        String rutaDestino = (rutaOrigen + "/carpetaPruebaCopia");
+        String rutaDestino = ("./target/copiaDeCarpeta");
 
         File carpetaOrigen = new File(rutaOrigen);
         File carpetaDestino = new File(rutaDestino);
@@ -27,7 +27,7 @@ public class CopiadoDeCarpetaTest {
     public void carpetaInexistenteParaCopiar() throws IOException, NoExisteDirectorioException {
 
         String rutaOrigen = "DirectorioIncorrecto";
-        String rutaDestino = (rutaOrigen + "/pruebaCarpetaCopia");
+        String rutaDestino = ("./target/pruebaCarpetaCopia");
 
         File carpetaOrigen = new File(rutaOrigen);
         File carpetaDestino = new File(rutaDestino);
