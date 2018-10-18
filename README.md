@@ -23,6 +23,7 @@ Se decidió utilizar una estructura modularizada para la resolución del problem
 >------
 >Se copió la plantilla dentro de la carpeta **archivosDePrueba**, pero las copias generadas a partir de la ejecución del programa se ubican dentro de la carpeta **/target/** del proyecto.
 >Los diagramas de clase estan divididos por paquetes
+>Se realizo un diagrama de uso general de secuencia
 
 ## Integrantes
 
