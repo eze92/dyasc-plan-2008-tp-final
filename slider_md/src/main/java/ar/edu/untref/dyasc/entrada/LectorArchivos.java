@@ -41,7 +41,7 @@ public class LectorArchivos {
 		StringBuilder contenido = new StringBuilder();
 
 		try (Stream<String> lineas = Files.lines(Paths.get(rutaArchivo))) {
-			lineas.forEach(linea -> contenido.append(linea));
+			lineas.forEach(linea -> contenido.append(linea).append(System.getProperty("line.separator")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
