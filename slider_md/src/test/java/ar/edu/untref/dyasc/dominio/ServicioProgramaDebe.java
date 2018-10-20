@@ -25,7 +25,7 @@ public class ServicioProgramaDebe {
 	}
 
 	@Test
-	public void separar_el_contenido_en_un_array_mediante_el_salto_de_linea() {
+	public void separarElContenidoEnUnArrayMedianteElSaltoDeLinea() {
 
 		String[] obtenido = contexto.getContenidoOriginal();
 
@@ -34,7 +34,7 @@ public class ServicioProgramaDebe {
 	}
 
 	@Test
-	public void generar_la_salida_en_formato_string() {
+	public void generarLaSalidaEnFormatoString() {
 
 		String obtenido = servicioEntrada.obtenerSalida();
 

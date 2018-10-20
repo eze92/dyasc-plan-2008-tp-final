@@ -23,7 +23,7 @@ public class LectorArchivosDebe {
 	}
 
 	@Test
-	public void leer_el_contenido_de_un_archivo_vacio() throws ExepcionArchivoNoEncontrado {
+	public void leerElContenidoDeUnArchivoVacio() throws ExepcionArchivoNoEncontrado {
 
 		String obtenido = lectorArchivos.leer(UBICACION_ARCHIVOS, EJEMPLO_VACIO);
 
@@ -32,7 +32,7 @@ public class LectorArchivosDebe {
 	}
 
 	@Test
-	public void leer_un_archivo_con_una_linea_de_contenido() throws ExepcionArchivoNoEncontrado {
+	public void leerUnArchivoConUnaLineaDeContenido() throws ExepcionArchivoNoEncontrado {
 
 		String obtenido = lectorArchivos.leer(UBICACION_ARCHIVOS, EJEMPLO_CON_UNA_LINEA);
 
@@ -41,7 +41,7 @@ public class LectorArchivosDebe {
 	}
 
 	@Test
-	public void leer_un_archivo_con_varias_lineas_de_contenido() throws ExepcionArchivoNoEncontrado {
+	public void leerUnArchivoConVariasLineasDeContenido() throws ExepcionArchivoNoEncontrado {
 
 		String obtenido = lectorArchivos.leer(UBICACION_ARCHIVOS, EJEMPLO_CON_VARIAS_LINEAS);
 
@@ -50,7 +50,7 @@ public class LectorArchivosDebe {
 	}
 
 	@Test(expected = ExepcionArchivoNoEncontrado.class)
-	public void devolver_un_error_cuando_el_archivo_no_fue_encontrado() throws ExepcionArchivoNoEncontrado {
+	public void devolverUnErrorCuandoElArchivoNoFueEncontrado() throws ExepcionArchivoNoEncontrado {
 		lectorArchivos.leer(UBICACION_ARCHIVOS, "");
 	}
 }

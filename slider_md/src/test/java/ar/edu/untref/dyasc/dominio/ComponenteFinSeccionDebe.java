@@ -10,7 +10,7 @@ public class ComponenteFinSeccionDebe {
 	private Contexto contexto = new Contexto();
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_de_finalizacion_de_seccion() {
+	public void agregarAlNuevoContenidoLaEtiquetaDeFinalizacionDeSeccion() {
 
 		String[] contenidoOriginal = { COMPONENTE_FINALIZACION };
 		contexto.setContenidoOriginal(contenidoOriginal);

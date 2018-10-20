@@ -16,7 +16,7 @@ public class ParametrosEntradaDebe {
 	private static final String[] EJEMPLO_CON_SALIDA_SIN_ARCHIVO = { MODO_SALIDA };
 
 	@Test
-	public void obtener_el_nombre_del_archivo_cuando_los_parametros_son_validos() {
+	public void obtenerElNombreDelArchivoCuandoLosParametrosSonValidos() {
 
 		Entrada entrada = new Entrada(EJEMPLO_PREDETERMINADO);
 
@@ -27,7 +27,7 @@ public class ParametrosEntradaDebe {
 	}
 
 	@Test
-	public void obtener_el_modo_predeterminado_cuando_el_parametro_es_default() throws ExepcionArchivoNoEncontrado {
+	public void obtenerElModoPredeterminadoCuandoElParametroEsDefault() throws ExepcionArchivoNoEncontrado {
 
 		Entrada entrada = new Entrada(EJEMPLO_PREDETERMINADO);
 
@@ -38,7 +38,7 @@ public class ParametrosEntradaDebe {
 	}
 
 	@Test
-	public void obtener_el_modo_salida_cuando_el_parametro_es_output() throws ExepcionArchivoNoEncontrado {
+	public void obtenerElModoSalidaCuandoElParametroEsOutput() throws ExepcionArchivoNoEncontrado {
 
 		Entrada entrada = new Entrada(EJEMPLO_CON_SALIDA);
 
@@ -49,7 +49,7 @@ public class ParametrosEntradaDebe {
 	}
 
 	@Test
-	public void obtener_el_modo_pantalla_cuando_el_parametro_es_no_output() throws ExepcionArchivoNoEncontrado {
+	public void obtenerElModoPantallaCuandoElParametroEsNoOutput() throws ExepcionArchivoNoEncontrado {
 
 		Entrada entrada = new Entrada(EJEMPLO_SIN_SALIDA);
 
@@ -60,7 +60,7 @@ public class ParametrosEntradaDebe {
 	}
 
 	@Test
-	public void obtener_el_nombre_de_la_carpeta_para_el_modo_predeterminado() {
+	public void obtenerElMombreDeLaCarpetaParaElModoPredeterminado() {
 
 		Entrada entrada = new Entrada(EJEMPLO_PREDETERMINADO);
 
@@ -71,7 +71,7 @@ public class ParametrosEntradaDebe {
 	}
 
 	@Test
-	public void obtener_el_nombre_de_la_carpeta_para_el_modo_predeterminado_sin_extension() {
+	public void obtenerElNombreDeLaCarpetaParaElModoPredeterminadoSinExtension() {
 
 		Entrada entrada = new Entrada(EJEMPLO_PREDETERMINADO_SIN_EXTENSION);
 
@@ -82,7 +82,7 @@ public class ParametrosEntradaDebe {
 	}
 
 	@Test
-	public void obtener_el_nombre_de_la_carpeta_para_el_modo_salida() {
+	public void obtenerElNombreDeLaCarpetaParaElModoSalida() {
 
 		Entrada entrada = new Entrada(EJEMPLO_CON_SALIDA);
 
@@ -93,7 +93,7 @@ public class ParametrosEntradaDebe {
 	}
 
 	@Test(expected = ExepcionArchivoNoEncontrado.class)
-	public void devolver_un_mensaje_de_error_cuando_el_parametro_es_output_y_no_contiene_referencia_a_un_archivo_markdown()
+	public void devolverUnMensajeDeErrorCuandoElParametroEsOutputYNoContieneReferenciaAUnArchivoMarkdown()
 			throws ExepcionArchivoNoEncontrado {
 
 		Entrada entrada = new Entrada(EJEMPLO_CON_SALIDA_SIN_ARCHIVO);

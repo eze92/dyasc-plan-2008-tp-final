@@ -25,7 +25,7 @@ public class ComponenteSeccionDebe {
 	}
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_seccion_cuando_solo_contiene_una_seccion() {
+	public void agregarAlNuevoContenidoLaEtiquetaSeccionCuandoSoloContieneUnaSeccion() {
 
 		String[] contenidoOriginal = { COMPONENTE_SECCION };
 		contexto.setContenidoOriginal(contenidoOriginal);
@@ -42,7 +42,7 @@ public class ComponenteSeccionDebe {
 	}
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_de_inicio_seccion_cuando_la_seccion_incluye_a_otro_componente() {
+	public void agregarAlNuevoContenidoLaEtiquetaDeInicioSeccionCuandoLaSeccionIncluyeAOtroComponente() {
 
 		String[] contenidoOriginal = { COMPONENTE_SECCION, COMPONENTE_H1 };
 		contexto.setContenidoOriginal(contenidoOriginal);
@@ -59,7 +59,7 @@ public class ComponenteSeccionDebe {
 	}
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_de_finalizacion_e_inicio_de_seccion_cuando_se_incluyen_dos_etiquetas_de_seccion() {
+	public void agregarAlNuevoContenidoLaEtiquetaDeFinalizacionEInicioDeSeccionCuandoSeIncluyenDosEtiquetasDeSeccion() {
 
 		String[] contenidoOriginal = { COMPONENTE_H1, COMPONENTE_SECCION, COMPONENTE_H1 };
 		contexto.setContenidoOriginal(contenidoOriginal);
@@ -77,7 +77,7 @@ public class ComponenteSeccionDebe {
 	}
 
 	@Test
-	public void verificar_que_se_llama_a_otro_componente_cuando_la_etiqueta_no_corresponde_a_una_seccion() {
+	public void verificarQueSeLlamaAOtroComponenteCuandoLaEtiquetaNoCorrespondeAUnaSeccion() {
 
 		String[] contenidoOriginal = { COMPONENTE_H1, COMPONENTE_H1 };
 		contexto.setContenidoOriginal(contenidoOriginal);

@@ -27,7 +27,7 @@ public class ComponenteTituloH1Debe {
 	}
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_h1_con_el_texto_correspondiente() {
+	public void agregarAlNuevoContenidoLaEtiquetaH1ConElTextoCorrespondiente() {
 
 		contexto.setExpresionActual(COMPONENTE_H1);
 		componenteH1 = new TituloH1(null);
@@ -41,7 +41,7 @@ public class ComponenteTituloH1Debe {
 	}
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_h1_para_un_componente_con_diferente_texto() {
+	public void agregarAlNuevoContenidoLaEtiquetaH1ParaUnComponenteConDiferenteTexto() {
 
 		contexto.setExpresionActual(OTRO_COMPONENTE_H1);
 		componenteH1 = new TituloH1(null);
@@ -55,7 +55,7 @@ public class ComponenteTituloH1Debe {
 	}
 
 	@Test
-	public void verificar_que_se_llama_a_otro_componente_cuando_la_etiqueta_no_corresponde_a_h1() {
+	public void verificarQueSeLlamaAOtroComponenteCuandoLaEtiquetaNoCorrespondeAH1() {
 
 		contexto.setExpresionActual(COMPONENTE_H2);
 		componenteH1 = new TituloH1(componenteH2);

@@ -27,7 +27,7 @@ public class ComponenteItemListaDebe {
 	}
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_lista_con_un_solo_item() {
+	public void agregarAlNuevoContenidoLaEtiquetaListaConUnSoloItem() {
 
 		String[] contenidoOriginal = { ITEM_LISTA, COMPONENTE_SECCION };
 		contexto.setContenidoOriginal(contenidoOriginal);
@@ -47,7 +47,7 @@ public class ComponenteItemListaDebe {
 	}
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_lista_con_un_solo_item_y_diferente_contenido() {
+	public void agregarAlNuevoContenidoLaEtiquetaListaConUnSoloItemYDiferenteContenido() {
 
 		String[] contenidoOriginal = { ITEM_LISTA_2, COMPONENTE_SECCION };
 		contexto.setContenidoOriginal(contenidoOriginal);
@@ -67,7 +67,7 @@ public class ComponenteItemListaDebe {
 	}
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_inicial_de_la_lista_cuando_hay_mas_de_un_item_de_lista() {
+	public void agregarAlNuevoContenidoLaEtiquetaInicialDeLaListaCuandoHayMasDeUnItemDeLista() {
 
 		String[] contenidoOriginal = { ITEM_LISTA, ITEM_LISTA_2, COMPONENTE_SECCION };
 		contexto.setContenidoOriginal(contenidoOriginal);
@@ -86,7 +86,7 @@ public class ComponenteItemListaDebe {
 	}
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_final_de_la_lista_cuando_hay_dos_items_de_lista() {
+	public void agregarAlNuevoContenidoLaEtiquetaFinalDeLaListaCuandoHayDosItemsDeLista() {
 
 		String[] contenidoOriginal = { ITEM_LISTA, ITEM_LISTA_2, COMPONENTE_SECCION };
 		contexto.setContenidoOriginal(contenidoOriginal);
@@ -106,7 +106,7 @@ public class ComponenteItemListaDebe {
 	}
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_intermedia_cuando_hay_mas_de_dos_items_de_lista() {
+	public void agregarAlNuevoContenidoLaEtiquetaIntermediaCuandoHayMasDeDosItemsDeLista() {
 
 		String[] contenidoOriginal = { ITEM_LISTA, ITEM_LISTA_2, ITEM_LISTA_3, COMPONENTE_SECCION };
 		contexto.setContenidoOriginal(contenidoOriginal);
@@ -125,7 +125,7 @@ public class ComponenteItemListaDebe {
 	}
 
 	@Test
-	public void verificar_que_se_llama_a_otro_componente_cuando_la_etiqueta_no_corresponde_a_un_item_de_lista() {
+	public void verificarQueSeLlamaAOtroComponenteCuandoLaEtiquetaNoCorrespondeAUnItemDeLista() {
 
 		contexto.setExpresionActual(COMPONENTE_SECCION);
 		ItemLista componenteItemLista = new ItemLista(componenteSeccion);

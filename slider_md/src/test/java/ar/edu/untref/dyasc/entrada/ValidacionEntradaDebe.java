@@ -14,7 +14,7 @@ public class ValidacionEntradaDebe {
 	private static final String[] NOMBRE_SIN_EXTENSION = { MODO_DEFAULT, "ejemplo_sin_extension" };
 
 	@Test
-	public void devolver_verdadero_para_un_nombre_de_archivo_valido() {
+	public void devolverVerdaderoParaUnNombreDeArchivoValido() {
 
 		Entrada entrada = new Entrada(NOMBRE_VALIDO);
 
@@ -24,7 +24,7 @@ public class ValidacionEntradaDebe {
 	}
 
 	@Test
-	public void devolver_falso_para_un_nombre_de_archivo_con_caracteres_invalidos() {
+	public void devolverFalsoParaUnNombreDeArchivoConCaracteresInvalidos() {
 
 		Entrada entrada = new Entrada(NOMBRE_CON_CARACTERES_INVALIDOS);
 
@@ -34,7 +34,7 @@ public class ValidacionEntradaDebe {
 	}
 
 	@Test
-	public void devolver_verdadero_para_un_nombre_de_archivo_sin_extension() {
+	public void devolverVerdaderoParaUnNombreDeArchivoSinExtension() {
 
 		Entrada entrada = new Entrada(NOMBRE_SIN_EXTENSION);
 

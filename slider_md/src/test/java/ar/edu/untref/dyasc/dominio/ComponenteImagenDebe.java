@@ -27,7 +27,7 @@ public class ComponenteImagenDebe {
 	}
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_imagen_con_el_nombre_correspondiente() {
+	public void agregarAlNuevoContenidoLaEtiquetaImagenConElNombreCorrespondiente() {
 
 		contexto.setExpresionActual(COMPONENTE_IMAGEN);
 		componenteImagen = new Imagen(null);
@@ -41,7 +41,7 @@ public class ComponenteImagenDebe {
 	}
 
 	@Test
-	public void agregar_al_nuevo_contenido_la_etiqueta_imagen_para_un_componente_con_diferente_texto() {
+	public void agregarAlNuevoContenidoLaEtiquetaImagenParaUnComponenteConDiferenteTexto() {
 
 		contexto.setExpresionActual(OTRO_COMPONENTE_IMAGEN);
 		componenteImagen = new Imagen(null);
@@ -55,7 +55,7 @@ public class ComponenteImagenDebe {
 	}
 
 	@Test
-	public void verificar_que_se_llama_a_otro_componente_cuando_la_etiqueta_no_corresponde_a_h1() {
+	public void verificarQueSeLlamaAOtroComponenteCuandoLaEtiquetaNoCorrespondeAH1() {
 
 		contexto.setExpresionActual(COMPONENTE_LISTA);
 		componenteImagen = new Imagen(componenteLista);
