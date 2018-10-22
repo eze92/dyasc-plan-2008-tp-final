@@ -2,6 +2,13 @@
 
 Trabajo Practico de la materia  Diseño y Arquitectura de Sistemas de Computacion
 
+## Integrantes
+
+Beltrame Martín  
+Ledesma Ezequiel
+
+[![Build Status](https://travis-ci.org/eze92/dyasc-plan-2008-tp-final.svg?branch=master)](https://travis-ci.org/eze92/dyasc-plan-2008-tp-final)
+
 ## Arquitectura
 
 Se decidió utilizar una estructura modularizada para la resolución del problema en todo el proyecto. Ésta se divide en 4 grupos bien definidos:
@@ -24,10 +31,3 @@ Se decidió utilizar una estructura modularizada para la resolución del problem
 >Se copió la plantilla dentro de la carpeta **archivosDePrueba**, pero las copias generadas a partir de la ejecución del programa se ubican dentro de la carpeta **/target/** del proyecto.
 >Los diagramas de clase estan divididos por paquetes.
 >Se realizo un diagrama de uso general de secuencia y uno del parseo de los elementos.
-
-## Integrantes
-
-Beltrame Martín  
-Ledesma Ezequiel
-
-[![Build Status](https://travis-ci.org/eze92/dyasc-plan-2008-tp-final.svg?branch=master)](https://travis-ci.org/eze92/dyasc-plan-2008-tp-final)
