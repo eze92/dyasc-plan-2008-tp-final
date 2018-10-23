@@ -53,4 +53,23 @@ public class TestIntegracion {
 				+ "<li>item 4</li>\n" + "<li>item 5</li>\n" + "</ul>\n";
 		Assert.assertEquals(esperado, obtenido);
 	}
+
+	@Test
+	public void prueba_para_el_archivo_que_no_tiene_contenido() throws ExepcionArchivoNoEncontrado {
+
+		String[] argumentos = { MODO_DEFAULT, "ejemplo_vacio.md" };
+		Entrada entrada = new Entrada(argumentos);
+
+		LectorArchivos lectorArchivos = new LectorArchivos();
+		String documento = lectorArchivos.leer(UBICACION_ARCHIVOS, entrada.nombreArchivo());
+
+		Contexto contexto = new Contexto();
+		ServicioPrograma servicioPrograma = new ServicioPrograma(contexto);
+		servicioPrograma.crearContenido(documento);
+
+		String obtenido = servicioPrograma.obtenerSalida();
+
+		String esperado = "";
+		Assert.assertEquals(esperado, obtenido);
+	}
 }
