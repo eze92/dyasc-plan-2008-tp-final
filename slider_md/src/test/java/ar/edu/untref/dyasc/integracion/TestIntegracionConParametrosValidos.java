@@ -9,7 +9,7 @@ import ar.edu.untref.dyasc.entrada.Entrada;
 import ar.edu.untref.dyasc.entrada.ExepcionArchivoNoEncontrado;
 import ar.edu.untref.dyasc.entrada.LectorArchivos;
 
-public class TestIntegracion {
+public class TestIntegracionConParametrosValidos {
 
 	private static final String MODO_DEFAULT = "--mode=default";
 
@@ -70,6 +70,25 @@ public class TestIntegracion {
 		String obtenido = servicioPrograma.obtenerSalida();
 
 		String esperado = "";
+		Assert.assertEquals(esperado, obtenido);
+	}
+
+	@Test
+	public void prueba_para_el_archivo_que_contiene_seccion_mas_titulo() throws ExepcionArchivoNoEncontrado {
+
+		String[] argumentos = { MODO_DEFAULT, "seccion_titulo.md" };
+		Entrada entrada = new Entrada(argumentos);
+
+		LectorArchivos lectorArchivos = new LectorArchivos();
+		String documento = lectorArchivos.leer(UBICACION_ARCHIVOS, entrada.nombreArchivo());
+
+		Contexto contexto = new Contexto();
+		ServicioPrograma servicioPrograma = new ServicioPrograma(contexto);
+		servicioPrograma.crearContenido(documento);
+
+		String obtenido = servicioPrograma.obtenerSalida();
+
+		String esperado = "<section>\n<h1>h1</h1>\n</section>";
 		Assert.assertEquals(esperado, obtenido);
 	}
 }
