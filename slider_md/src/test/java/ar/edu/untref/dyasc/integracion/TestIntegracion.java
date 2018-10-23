@@ -33,4 +33,24 @@ public class TestIntegracion {
 		String esperado = "<section>\n</section>";
 		Assert.assertEquals(esperado, obtenido);
 	}
+
+	@Test
+	public void prueba_para_el_archivo_que_contiene_solo_lista() throws ExepcionArchivoNoEncontrado {
+
+		String[] argumentos = { MODO_DEFAULT, "lista.md" };
+		Entrada entrada = new Entrada(argumentos);
+
+		LectorArchivos lectorArchivos = new LectorArchivos();
+		String documento = lectorArchivos.leer(UBICACION_ARCHIVOS, entrada.nombreArchivo());
+
+		Contexto contexto = new Contexto();
+		ServicioPrograma servicioPrograma = new ServicioPrograma(contexto);
+		servicioPrograma.crearContenido(documento);
+
+		String obtenido = servicioPrograma.obtenerSalida();
+
+		String esperado = "<ul>\n" + "<li>item 1</li>\n" + "<li>item 2</li>\n" + "<li>item 3</li>\n"
+				+ "<li>item 4</li>\n" + "<li>item 5</li>\n" + "</ul>\n";
+		Assert.assertEquals(esperado, obtenido);
+	}
 }
