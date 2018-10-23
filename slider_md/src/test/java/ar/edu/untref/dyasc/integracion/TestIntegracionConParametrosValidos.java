@@ -16,7 +16,7 @@ public class TestIntegracionConParametrosValidos {
 	private static final String UBICACION_ARCHIVOS = "./archivosDePrueba/";
 
 	@Test
-	public void prueba_para_el_archivo_que_contiene_solo_seccion() throws ExepcionArchivoNoEncontrado {
+	public void pruebaParaElArchivoQueContieneSoloSeccion() throws ExepcionArchivoNoEncontrado {
 
 		String[] argumentos = { MODO_DEFAULT, "seccion.md" };
 		Entrada entrada = new Entrada(argumentos);
@@ -35,7 +35,7 @@ public class TestIntegracionConParametrosValidos {
 	}
 
 	@Test
-	public void prueba_para_el_archivo_que_contiene_solo_lista() throws ExepcionArchivoNoEncontrado {
+	public void pruebaParaElArchivoQueContieneSoloLista() throws ExepcionArchivoNoEncontrado {
 
 		String[] argumentos = { MODO_DEFAULT, "lista.md" };
 		Entrada entrada = new Entrada(argumentos);
@@ -55,7 +55,7 @@ public class TestIntegracionConParametrosValidos {
 	}
 
 	@Test
-	public void prueba_para_el_archivo_que_no_tiene_contenido() throws ExepcionArchivoNoEncontrado {
+	public void pruebaParaElArchivoQueNoTieneContenido() throws ExepcionArchivoNoEncontrado {
 
 		String[] argumentos = { MODO_DEFAULT, "ejemplo_vacio.md" };
 		Entrada entrada = new Entrada(argumentos);
@@ -74,7 +74,7 @@ public class TestIntegracionConParametrosValidos {
 	}
 
 	@Test
-	public void prueba_para_el_archivo_que_contiene_seccion_mas_titulo() throws ExepcionArchivoNoEncontrado {
+	public void pruebaParaElArchivoQueContieneSeccionMasTitulo() throws ExepcionArchivoNoEncontrado {
 
 		String[] argumentos = { MODO_DEFAULT, "seccion_titulo.md" };
 		Entrada entrada = new Entrada(argumentos);
