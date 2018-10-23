@@ -30,7 +30,8 @@ public class TestIntegracionConParametrosValidos {
 
 		String obtenido = servicioPrograma.obtenerSalida();
 
-		String esperado = "<section>\n</section>";
+		String esperado = "<section>\n" +
+						  "</section>";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
@@ -93,7 +94,9 @@ public class TestIntegracionConParametrosValidos {
 
 		String obtenido = servicioPrograma.obtenerSalida();
 
-		String esperado = "<section>\n<h1>h1</h1>\n</section>";
+		String esperado = "<section>\n" +
+							"<h1>h1</h1>\n" +
+						  "</section>";
 		Assert.assertEquals(esperado, obtenido);
 	}
 
