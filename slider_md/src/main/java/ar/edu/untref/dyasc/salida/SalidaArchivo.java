@@ -18,7 +18,7 @@ public class SalidaArchivo extends Salida {
 	private String nombreCarpeta;
 	private String nombreArchivo;
 
-	private CopiadoDeArchivos copiadoDeCarpeta = new CopiadoDeArchivos();
+	private CopiadorArchivos copiadoDeCarpeta = new CopiadorArchivos();
 	private LectorArchivos lectorArchivos = new LectorArchivos();
 
 	public SalidaArchivo(String nombreCarpeta, String nombreArchivo) {

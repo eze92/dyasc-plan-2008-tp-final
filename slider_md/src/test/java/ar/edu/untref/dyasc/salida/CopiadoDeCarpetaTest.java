@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import org.junit.Assert;
 import org.junit.Test;
-import ar.edu.untref.dyasc.salida.CopiadoDeArchivos;
+import ar.edu.untref.dyasc.salida.CopiadorArchivos;
 import ar.edu.untref.dyasc.salida.NoExisteDirectorioException;
 
 public class CopiadoDeCarpetaTest {
@@ -17,7 +17,7 @@ public class CopiadoDeCarpetaTest {
 
         File carpetaOrigen = new File(rutaOrigen);
         File carpetaDestino = new File(rutaDestino);
-        CopiadoDeArchivos realizarCopia = new CopiadoDeArchivos();
+        CopiadorArchivos realizarCopia = new CopiadorArchivos();
         realizarCopia.copiarCarpeta(carpetaOrigen, carpetaDestino);
 
         Assert.assertTrue(carpetaDestino.exists());
@@ -31,7 +31,7 @@ public class CopiadoDeCarpetaTest {
 
         File carpetaOrigen = new File(rutaOrigen);
         File carpetaDestino = new File(rutaDestino);
-        CopiadoDeArchivos realizarCopia = new CopiadoDeArchivos();
+        CopiadorArchivos realizarCopia = new CopiadorArchivos();
         realizarCopia.copiarCarpeta(carpetaOrigen, carpetaDestino);
 
         Assert.assertFalse(carpetaDestino.exists());

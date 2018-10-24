@@ -27,7 +27,7 @@ public class Programa {
 			throws ExepcionArchivoNoEncontrado, IOException, NoExisteDirectorioException, ExepcionNombreInvalido {
 
 		Entrada entrada = new Entrada(args);
-		entrada.modo();
+		String modo = entrada.modo();
 
 		if (entrada.nombreValido()) {
 
@@ -49,7 +49,7 @@ public class Programa {
 			salidas.put(MODO_DEFAULT, new SalidaArchivo(entrada.nombreCarpeta(), entrada.nombreArchivo()));
 			salidas.put(MODO_SALIDA, new SalidaArchivo(entrada.nombreCarpeta(), entrada.nombreArchivo()));
 
-			salidas.get(entrada.modo()).imprimir(contenidoSalida);
+			salidas.get(modo).imprimir(contenidoSalida);
 		} else {
 			throw new ExepcionNombreInvalido();
 		}

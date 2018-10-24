@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class CopiadoDeArchivos {
+public class CopiadorArchivos {
 
 	public void copiarCarpeta(File directorioOrigen, File directorioDestino)
 			throws IOException, NoExisteDirectorioException {
