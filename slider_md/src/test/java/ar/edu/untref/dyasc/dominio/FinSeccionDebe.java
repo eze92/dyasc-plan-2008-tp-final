@@ -3,7 +3,7 @@ package ar.edu.untref.dyasc.dominio;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ComponenteFinSeccionDebe {
+public class FinSeccionDebe {
 
 	private static final String COMPONENTE_FINALIZACION = "FIN";
 

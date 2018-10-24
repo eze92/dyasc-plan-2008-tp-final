@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ComponenteItemListaDebe {
+public class ItemListaDebe {
 
 	private static final String ITEM_LISTA = "* Item 1";
 	private static final String ITEM_LISTA_2 = "* Item 2";

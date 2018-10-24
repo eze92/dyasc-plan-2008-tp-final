@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ComponenteTituloH2Debe {
+public class TituloH2Debe {
 
 	private static final String COMPONENTE_H2 = "## Titulo h2";
 	private static final String OTRO_COMPONENTE_H2 = "## Otro titulo h2";

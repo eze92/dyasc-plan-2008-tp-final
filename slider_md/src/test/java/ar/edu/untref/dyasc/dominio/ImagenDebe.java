@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ComponenteImagenDebe {
+public class ImagenDebe {
 
 	private static final String COMPONENTE_IMAGEN = "i:imagen.png";
 	private static final String OTRO_COMPONENTE_IMAGEN = "i:otra_imagen.png";

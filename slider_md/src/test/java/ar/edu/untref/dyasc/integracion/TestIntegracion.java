@@ -9,7 +9,7 @@ import ar.edu.untref.dyasc.entrada.Entrada;
 import ar.edu.untref.dyasc.entrada.ExepcionArchivoNoEncontrado;
 import ar.edu.untref.dyasc.entrada.LectorArchivos;
 
-public class TestIntegracionConParametrosValidos {
+public class TestIntegracion {
 
 	private static final String MODO_DEFAULT = "--mode=default";
 
